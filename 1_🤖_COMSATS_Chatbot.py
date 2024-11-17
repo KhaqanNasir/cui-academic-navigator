@@ -1,6 +1,20 @@
 import streamlit as st
+import os
+import pandas as pd
+from groq import Groq
+import pdfplumber
+from docx import Document
+import pptx
+import requests
+from bs4 import BeautifulSoup
 
-st.set_page_config()
+# Set page configuration (must be the first Streamlit command)
+st.set_page_config(
+    page_title="COMSATS Chatbot",
+    page_icon="🎓",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
 def load_css():
     st.markdown("""
@@ -102,40 +116,38 @@ def main():
     # Title and Logo
     st.markdown("<h1 class='main-title'>📚 COMSATS University Islamabad, Sahiwal Campus 🤖</h1>", unsafe_allow_html=True)
     st.markdown("<p class='tagline'>Your AI-Powered Academic Assistant 🎓✨</p>", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns([1,1,1])
+    col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
         st.image("logo.png", width=120, use_column_width=True)
 
     # Features Section
     st.markdown("<h2 class='section-header'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
     features = [
-    {
-        "title": "📘 Personalized Study Chatbot",
-        "description": "Get tailored study plans based on your course outline. Make your study time super productive! 🕒"
-    },
-    {
-        "title": "📝 Notes Maker",
-        "description": "Effortlessly organize and create notes from your lectures or resources. Stay ahead with well-structured notes! 📓"
-    },
-    {
-        "title": "🏫 Campus Information Chatbot",
-        "description": "Learn about campus details, events, and services. Stay informed and connected! 🎉"
-    },
-    {
-        "title": "👤 About Us",
-        "description": "Discover the vision, team, and journey behind this app. Join us on our mission to innovate education! 🌟"
-    }
-]
+        {
+            "title": "📘 Personalized Study Chatbot",
+            "description": "Get tailored study plans based on your course outline. Make your study time super productive! 🕒"
+        },
+        {
+            "title": "📝 Notes Maker",
+            "description": "Effortlessly organize and create notes from your lectures or resources. Stay ahead with well-structured notes! 📓"
+        },
+        {
+            "title": "🏫 Campus Information Chatbot",
+            "description": "Learn about campus details, events, and services. Stay informed and connected! 🎉"
+        },
+        {
+            "title": "👤 About Us",
+            "description": "Discover the vision, team, and journey behind this app. Join us on our mission to innovate education! 🌟"
+        }
+    ]
 
     for feature in features:
-
-     st.markdown(f"""
-       <div class='feature-box'>
-        <p class='feature-title'>{feature['title']}</p>
-        <p>{feature['description']}</p>
-      </div>
-     """, unsafe_allow_html=True)
-
+        st.markdown(f"""
+        <div class='feature-box'>
+            <p class='feature-title'>{feature['title']}</p>
+            <p class='feature-description'>{feature['description']}</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     # Navigation Buttons
     st.markdown("<h2 class='section-header'>🚀 Explore Our Chatbots</h2>", unsafe_allow_html=True)
@@ -144,7 +156,7 @@ def main():
         <a href="/Personalized_Study_Bot" class="app-button">📘 Study Chatbot</a>
         <a href="/Notes_Maker" class="app-button">📝 Notes Maker</a>
         <a href="/Campus_Information" class="app-button">🏫 Campus Info</a>
-        <a href="/About_Us.py" class="app-button">👤 About Us</a>
+        <a href="/About_Us" class="app-button">👤 About Us</a>
     </div>
     """, unsafe_allow_html=True)
 
@@ -154,15 +166,9 @@ def main():
         <p>📢 Welcome to the COMSATS University chatbot! We are here to assist students with personalized study plans, campus details, and more. Start exploring now! 🚀</p>
     </div>
     """, unsafe_allow_html=True)
-    
-    st.sidebar.success("Select a above page")
+
+    st.sidebar.success("Select a page above.")
 
 # Run App
 if __name__ == "__main__":
-    st.set_page_config(
-        page_title="COMSATS Chatbot",
-        page_icon="🎓",
-        layout="wide", 
-        initial_sidebar_state="collapsed"
-    )
     main()
