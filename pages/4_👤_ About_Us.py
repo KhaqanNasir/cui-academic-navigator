@@ -101,13 +101,13 @@ def main():
             "name": "💻 Muhammad Khaqan Nasir",
             "github": "khaqan-nasir",
             "linkedin": "muhammad-khaqan-nasir",
-            "image": "https://via.placeholder.com/150"  # Replace with your image URL
+            "image": "assets/1.jpg"  # Replace with your image URL
         },
         {
             "name": "🖥️ Muhammad Adnan Tariq",
             "github": "adnan-tariq",
             "linkedin": "muhammad-adnan-tariq",
-            "image": "https://via.placeholder.com/150"  # Replace with your friend's image URL
+            "image": "assets/2.jpeg"  # Replace with your friend's image URL
         }
     ]
 
