@@ -15,19 +15,19 @@ def load_css():
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
     
     .stApp {
-        background-color: #1e1e1e;
+        background-color: #ODODOD;
         font-family: 'Poppins', sans-serif;
     }
     .main-title {
-        color: #ff6347;
-        font-size: 70px;
+        color: #763DF2;
+        font-size: 60px;
         font-weight: bold;
         text-align: center;
-        margin-top: 20px;
-        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
     .tagline {
-        color: #ff4500;
+        color: #5129A6;
         font-size: 28px;
         font-style: italic;
         text-align: center;
@@ -46,45 +46,58 @@ def load_css():
         text-align: center;
     }
     .feature-box {
-        background-color: #2f2f2f;
+        background-color: #421E59;
         border-radius: 15px;
         padding: 20px;
         margin: 20px auto;
         width: 90%;
         max-width: 700px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     .feature-box:hover {
-        background-color: #ff6347;
-        transform: scale(1.05);
+        transform: scale(1.03);
+        background-color: #5129A6;
     }
     .feature-title {
-        color: #fff;
+        color: #F2DFF2;
         font-size: 22px;
         font-weight: bold;
         margin-bottom: 10px;
     }
     .feature-description {
-        color: #ddd;
+        color: #F2DFF2;
         font-size: 16px;
         margin-bottom: 10px;
     }
-    .app-button {
-        background-color: #ff6347;
-        color: #fff;
+   .app-button {
+        background-color: #5129A6;
+        color: #F2DFF2;
         font-size: 18px;
         font-weight: bold;
         padding: 12px 24px;
         border-radius: 25px;
-        margin-top: 20px;
         text-align: center;
-        transition: all 0.3s ease;
+        margin: 10px;
         display: inline-block;
         text-decoration: none;
+        transition: all 0.3s ease;
     }
     .app-button:hover {
-        background-color: #ff4500;
+        background-color: #763DF2;
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .intro-statement {
+        background-color: #421E59;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 30px 0;
+        text-align: center;
+        font-size: 18px;
+        color: #F2DFF2;
+    }
+    p {
+        color: #F2DFF2;
     }
     .file-card {
         background-color: #3a3a3a;
@@ -97,18 +110,6 @@ def load_css():
     }
     .file-card:hover {
         background-color: #ff6347;
-    }
-    .intro-statement {
-        background-color: #2f2f2f;
-        border-radius: 10px;
-        padding: 20px;
-        margin: 30px 0;
-        text-align: center;
-        font-size: 18px;
-        color: #fff;
-    }
-    p {
-        color: #ddd;
     }
     .progress-bar {
         margin-top: 20px;
