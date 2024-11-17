@@ -94,20 +94,20 @@ def main():
     st.markdown("<h1 class='main-title'>🌟 COMSATS Chatbot 🌟</h1>", unsafe_allow_html=True)
     st.markdown("<p class='tagline'>🤝 Crafted with love and precision by your dedicated team! 🎨✨</p>", unsafe_allow_html=True)
     st.markdown("<h2 class='section-header'>👨‍💻 Meet the Team 🚀</h2>", unsafe_allow_html=True)
-    data_folder = os.path.join(os.path.dirname(__file__), 'assets')
+    
     # Team members
     team_members = [
         {
             "name": "💻 Muhammad Khaqan Nasir",
             "github": "khaqan-nasir",
             "linkedin": "muhammad-khaqan-nasir",
-            "image": os.path.join(data_folder, '1.jpg')
+            "image": "https://via.placeholder.com/150"  # Replace with your image URL
         },
         {
             "name": "🖥️ Muhammad Adnan Tariq",
             "github": "adnan-tariq",
             "linkedin": "muhammad-adnan-tariq",
-            "image": os.path.join(data_folder, '2.jpeg')  # Local image path
+            "image": "https://via.placeholder.com/150"  # Replace with your friend's image URL
         }
     ]
 
