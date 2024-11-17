@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
 def load_css():
     st.markdown("""
@@ -94,6 +95,10 @@ def main():
     st.markdown("<h1 class='main-title'>🌟 COMSATS Chatbot 🌟</h1>", unsafe_allow_html=True)
     st.markdown("<p class='tagline'>🤝 Crafted with love and precision by your dedicated team! 🎨✨</p>", unsafe_allow_html=True)
     st.markdown("<h2 class='section-header'>👨‍💻 Meet the Team 🚀</h2>", unsafe_allow_html=True)
+
+    image_path_1 = os.path.join(os.path.dirname(__file__), 'assets', '1.jpg') 
+    image_path_2 = os.path.join(os.path.dirname(__file__), 'assets', '2.jpeg')
+
     
     # Team members
     team_members = [
@@ -101,13 +106,13 @@ def main():
             "name": "💻 Muhammad Khaqan Nasir",
             "github": "khaqan-nasir",
             "linkedin": "muhammad-khaqan-nasir",
-            "image": "https://via.placeholder.com/150"  # Replace with your image URL
+            "image": image_path_1
         },
         {
             "name": "🖥️ Muhammad Adnan Tariq",
             "github": "adnan-tariq",
             "linkedin": "muhammad-adnan-tariq",
-            "image": "2.jpeg"  # Replace with your friend's image URL
+            "image": image_path_2
         }
     ]
 
