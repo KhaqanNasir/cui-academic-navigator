@@ -96,50 +96,40 @@ def main():
     st.markdown("<h2 class='section-header'>👨‍💻 Meet the Team 🚀</h2>", unsafe_allow_html=True)
     
     # Team members
-    # Add the team members
+    team_members = [
+        {
+            "name": "💻 Muhammad Khaqan Nasir",
+            "github": "khaqan-nasir",
+            "linkedin": "muhammad-khaqan-nasir",
+            "image": "https://via.placeholder.com/150"  # Replace with your image URL
+        },
+        {
+            "name": "🖥️ Muhammad Adnan Tariq",
+            "github": "adnan-tariq",
+            "linkedin": "muhammad-adnan-tariq",
+            "image": "..assets/2.jpeg"  # Replace with your friend's image URL
+        }
+    ]
 
-team_members = [
-    {
-        "name": "💻 Muhammad Khaqan Nasir",
-        "github": "khaqan-nasir",
-        "linkedin": "muhammad-khaqan-nasir",
-        "image": "https://drive.google.com/file/d/1lHPkr86HBT8WP0x8EGaVMoGCfXSPPUD1/view?usp=sharing"  # Corrected path
-    },
-    {
-        "name": "🖥️ Muhammad Adnan Tariq",
-        "github": "adnan-tariq",
-        "linkedin": "muhammad-adnan-tariq",
-        "image": "https://drive.google.com/file/d/1OEAlWp3CVBmPUhDw8w6QpT4LrESgn1yf/view?usp=sharing"  # Corrected path
-    }
-]
-
-cols = st.columns(len(team_members))
-for col, member in zip(cols, team_members):
-    with col:
-        try:
-            # Read and encode the image in Base64
-            with open(member['image'], 'rb') as img_file:
-                image_base64 = base64.b64encode(img_file.read()).decode('utf-8')
-            
+    cols = st.columns(len(team_members))
+    for col, member in zip(cols, team_members):
+        with col:
             st.markdown(f"""
                 <div class='feature-box'>
                     <div class='circular-image'>
-                        <img src="data:image/jpeg;base64,{image_base64}" alt="{member['name']}">
+                        <img src="{member['image']}" alt="{member['name']}">
                     </div>
                     <div class='team-member-name'>{member['name']}</div>
                     <div class='social-links'>
-                        <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>
-                            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="20"> GitHub
-                        </a>
-                        <a href='https://linkedin.com/in/{member["linkedin"]}' target='_blank' class='social-button'>
-                            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="20"> LinkedIn
-                        </a>
+                       <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>
+                       <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="20"> GitHub
+                       </a>
+                       <a href='https://linkedin.com/in/{member["linkedin"]}' target='_blank' class='social-button'>
+                       <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="20"> LinkedIn
+                       </a>
                     </div>
-                </div>
+                   </div>
             """, unsafe_allow_html=True)
-        except FileNotFoundError:
-            st.error(f"Image file not found: {member['image']}")
-
 
 if __name__ == "__main__":
     st.set_page_config(
