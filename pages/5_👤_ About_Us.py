@@ -102,7 +102,7 @@ team_members = [
         "name": "💻 Muhammad Khaqan Nasir",
         "github": "KhaqanNasir",
         "linkedin": "khaqan-nasir",
-        "image": "../assets/1.jpg"  # Path to the local JPG image
+        "image": "https://drive.google.com/file/d/1lHPkr86HBT8WP0x8EGaVMoGCfXSPPUD1/view?usp=sharing"  # Path to the local JPG image
     },
     {
         "name": "🖥️ Muhammad Adnan Tariq",
