@@ -15,19 +15,19 @@ def load_css():
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
     
     .stApp {
-        background-color: #0D0D0D;
+        background-color: #1e1e1e;
         font-family: 'Poppins', sans-serif;
     }
     .main-title {
-        color: #763DF2;
-        font-size: 60px;
+        color: #ff6347;
+        font-size: 70px;
         font-weight: bold;
         text-align: center;
-        margin-bottom: 10px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        margin-top: 20px;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
     }
     .tagline {
-        color: #5129A6;
+        color: #ff4500;
         font-size: 28px;
         font-style: italic;
         text-align: center;
@@ -38,7 +38,7 @@ def load_css():
         margin: 20px 0;
     }
     .section-header {
-        color: #763DF2;
+        color: #ff6347;
         font-size: 36px;
         font-weight: bold;
         margin-top: 40px;
@@ -46,58 +46,72 @@ def load_css():
         text-align: center;
     }
     .feature-box {
-        background-color: #421E59;
+        background-color: #2f2f2f;
         border-radius: 15px;
         padding: 20px;
         margin: 20px auto;
         width: 90%;
         max-width: 700px;
-        transition: transform 0.3s ease-in-out;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     }
     .feature-box:hover {
-        transform: scale(1.03);
-        background-color: #5129A6;
+        background-color: #ff6347;
+        transform: scale(1.05);
     }
     .feature-title {
-        color: #F2DFF2;
+        color: #fff;
         font-size: 22px;
         font-weight: bold;
         margin-bottom: 10px;
     }
     .feature-description {
-        color: #F2DFF2;
+        color: #ddd;
         font-size: 16px;
         margin-bottom: 10px;
     }
     .app-button {
-        background-color: #5129A6;
-        color: #F2DFF2;
+        background-color: #ff6347;
+        color: #fff;
         font-size: 18px;
         font-weight: bold;
         padding: 12px 24px;
         border-radius: 25px;
+        margin-top: 20px;
         text-align: center;
-        margin: 10px;
+        transition: all 0.3s ease;
         display: inline-block;
         text-decoration: none;
-        transition: all 0.3s ease;
     }
     .app-button:hover {
-        background-color: #763DF2;
+        background-color: #ff4500;
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
+    .file-card {
+        background-color: #3a3a3a;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 15px 0;
+        color: #fff;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    .file-card:hover {
+        background-color: #ff6347;
+    }
     .intro-statement {
-        background-color: #421E59;
+        background-color: #2f2f2f;
         border-radius: 10px;
         padding: 20px;
         margin: 30px 0;
         text-align: center;
         font-size: 18px;
-        color: #F2DFF2;
+        color: #fff;
     }
     p {
-        color: #F2DFF2;
+        color: #ddd;
+    }
+    .progress-bar {
+        margin-top: 20px;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -134,7 +148,7 @@ def generate_detailed_notes_with_groq(text):
         messages=[{
             "role": "user",
             "content": f"Please summarize the following text in a structured manner with headings, subheadings, and bullet points. Make the explanation clear and understandable:\n\n{text}",
-        }],
+        }], 
         model="llama3-8b-8192",
     )
     return chat_completion.choices[0].message.content
@@ -174,20 +188,25 @@ def main():
     
     if uploaded_files:
         for uploaded_file in uploaded_files:
-            st.write(f"Uploaded file: {uploaded_file.name}")
+            st.markdown(f"""
+                <div class="file-card">
+                    <b>{uploaded_file.name}</b> ({uploaded_file.type})
+                </div>
+                """, unsafe_allow_html=True)
         
         generate_button = st.button("Generate Notes 📄")
         
         if generate_button:
             full_text = ""
             
-            for uploaded_file in uploaded_files:
-                if uploaded_file.type == "application/pdf":
-                    full_text += extract_pdf_text(uploaded_file)
-                elif uploaded_file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
-                    full_text += extract_docx_text(uploaded_file)
-                elif uploaded_file.type == "application/vnd.openxmlformats-officedocument.presentationml.presentation":
-                    full_text += extract_pptx_text(uploaded_file)
+            with st.spinner('Generating notes...'):
+                for uploaded_file in uploaded_files:
+                    if uploaded_file.type == "application/pdf":
+                        full_text += extract_pdf_text(uploaded_file)
+                    elif uploaded_file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+                        full_text += extract_docx_text(uploaded_file)
+                    elif uploaded_file.type == "application/vnd.openxmlformats-officedocument.presentationml.presentation":
+                        full_text += extract_pptx_text(uploaded_file)
             
             if full_text:
                 detailed_notes = generate_detailed_notes_with_groq(full_text)
@@ -205,7 +224,7 @@ def main():
 
 if __name__ == "__main__":
     st.set_page_config(
-        page_title="COMSATS Chatbot",
+        page_title="COMSATS Chatbot | Notes Maker",
         page_icon="🎓",
         layout="wide",  
         initial_sidebar_state="collapsed"
