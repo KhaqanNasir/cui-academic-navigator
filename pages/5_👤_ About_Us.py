@@ -107,7 +107,7 @@ def main():
             "name": "🖥️ Muhammad Adnan Tariq",
             "github": "adnan-tariq",
             "linkedin": "muhammad-adnan-tariq",
-            "image": "..assets/2.jpeg"  # Replace with your friend's image URL
+            "image": "2.jpeg"  # Replace with your friend's image URL
         }
     ]
 
