@@ -44,37 +44,38 @@ def fetch_university_data(query):
 
 # Define the main function for the Streamlit app
 def main():
-    st.title("🏫 COMSATS University Islamabad, Sahiwal Campus Chatbot")
+    st.markdown('<h1 class="main-title">🏫 COMSATS University Islamabad, Sahiwal Campus Chatbot</h1>', unsafe_allow_html=True)
     
     # Display instructions for the user
-    st.write("Ask any questions related to COMSATS University Islamabad, Sahiwal Campus facilities, events, or departments.")
+    st.markdown('<p class="intro-statement">Ask any questions related to COMSATS University Islamabad, Sahiwal Campus facilities, events, or departments.</p>', unsafe_allow_html=True)
     
     # Initialize chat history and clear button functionality
     if "chat_history" not in st.session_state:
         st.session_state["chat_history"] = []
     
-    user_question = st.text_input("Enter your question about the campus:")
+    user_question = st.text_input("Enter your question about the campus:", key="user_question", label_visibility="collapsed")
     
-    if st.button("Ask"):
+    if st.button("Ask", key="ask_button"):
         # Step 1: Retrieve data
         relevant_data = fetch_university_data(user_question)
         
+        # Update chat history
         st.session_state["chat_history"].append({"role": "user", "content": user_question})
         st.session_state["chat_history"].append({"role": "assistant", "content": relevant_data})
 
         st.markdown("#### Answer:")
         st.write(relevant_data)
 
-    # Display chat history
-    st.markdown("### 💬 Chat History")
+    # Display chat history with better styling
+    st.markdown('<h3 class="section-header">💬 Chat History</h3>', unsafe_allow_html=True)
     for message in st.session_state["chat_history"]:
         if message["role"] == "user":
-            st.markdown(f"**You:** {message['content']}")
+            st.markdown(f'<div class="chat-message user-message"><strong>You:</strong> {message["content"]}</div>', unsafe_allow_html=True)
         else:
-            st.markdown(f"**Bot:** {message['content']}")
+            st.markdown(f'<div class="chat-message bot-message"><strong>Bot:</strong> {message["content"]}</div>', unsafe_allow_html=True)
 
     # Clear chat history button
-    if st.button("Clear Chat History"):
+    if st.button("Clear Chat History", key="clear_history_button"):
         st.session_state["chat_history"].clear()
         st.success("Chat history cleared.")
 
@@ -92,19 +93,38 @@ st.markdown("""
         font-size: 60px;
         font-weight: bold;
         text-align: center;
-        margin-bottom: 10px;
+        margin-top: 50px;
+        margin-bottom: 20px;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
-    .tagline {
-        color: #5129A6;
-        font-size: 28px;
-        font-style: italic;
+    .intro-statement {
+        background-color: #421E59;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 30px 0;
         text-align: center;
-        margin-bottom: 30px;
+        font-size: 18px;
+        color: #F2DFF2;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    .logo-container {
+    .chat-message {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .user-message {
+        background-color: #5129A6;
+        color: #F2DFF2;
+        text-align: left;
+    }
+    .bot-message {
+        background-color: #763DF2;
+        color: #F2DFF2;
+        text-align: right;
+    }
+    .button-container {
         text-align: center;
-        margin: 20px 0;
+        margin-top: 20px;
     }
     .section-header {
         color: #763DF2;
@@ -113,31 +133,6 @@ st.markdown("""
         margin-top: 40px;
         margin-bottom: 20px;
         text-align: center;
-    }
-    .feature-box {
-        background-color: #421E59;
-        border-radius: 15px;
-        padding: 20px;
-        margin: 20px auto;
-        width: 90%;
-        max-width: 700px;
-        transition: transform 0.3s ease-in-out;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .feature-box:hover {
-        transform: scale(1.03);
-        background-color: #5129A6;
-    }
-    .feature-title {
-        color: #F2DFF2;
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-    .feature-description {
-        color: #F2DFF2;
-        font-size: 16px;
-        margin-bottom: 10px;
     }
     .app-button {
         background-color: #5129A6;
@@ -155,18 +150,6 @@ st.markdown("""
     .app-button:hover {
         background-color: #763DF2;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .intro-statement {
-        background-color: #421E59;
-        border-radius: 10px;
-        padding: 20px;
-        margin: 30px 0;
-        text-align: center;
-        font-size: 18px;
-        color: #F2DFF2;
-    }
-    p {
-        color: #F2DFF2;
     }
     </style>
 """, unsafe_allow_html=True)
