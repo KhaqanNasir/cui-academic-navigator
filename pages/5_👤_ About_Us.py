@@ -96,11 +96,11 @@ def main():
     st.markdown("<p class='tagline'>🤝 Crafted with love and precision by your dedicated team! 🎨✨</p>", unsafe_allow_html=True)
     st.markdown("<h2 class='section-header'>👨‍💻 Meet the Team 🚀</h2>", unsafe_allow_html=True)
 
-# Define the path to your images (assuming the images are in the 'data' folder)
-image_path_1 = os.path.join(os.path.dirname(__file__), 'assets', '1.jpg')  # Image for the first team member
-image_path_2 = os.path.join(os.path.dirname(__file__), 'assets', '2.jpeg')  # Image for the second team member
+    # Define the path to your images (assuming the images are in the 'data' folder)
+    image_path_1 = os.path.join(os.path.dirname(__file__), 'assets', '1.jpg')  # Image for the first team member
+    image_path_2 = os.path.join(os.path.dirname(__file__), 'assets', '2.jpeg')  # Image for the second team member
 
-team_members = [
+    team_members = [
     {
         "name": "💻 Muhammad Khaqan Nasir",
         "github": "khaqan-nasir",
@@ -115,9 +115,9 @@ team_members = [
     }
 ]
 
-cols = st.columns(len(team_members))
-for col, member in zip(cols, team_members):
-    with col:
+   cols = st.columns(len(team_members))
+   for col, member in zip(cols, team_members):
+      with col:
         st.markdown(f"""
             <div class='feature-box'>
                 <div class='circular-image'>
