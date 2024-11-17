@@ -12,7 +12,93 @@ client = Groq(api_key="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"
 def load_css():
     st.markdown("""
     <style>
-    /* Your custom CSS code here */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    
+    .stApp {
+        background-color: #0D0D0D;
+        font-family: 'Poppins', sans-serif;
+    }
+    .main-title {
+        color: #763DF2;
+        font-size: 60px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .tagline {
+        color: #5129A6;
+        font-size: 28px;
+        font-style: italic;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .logo-container {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .section-header {
+        color: #763DF2;
+        font-size: 36px;
+        font-weight: bold;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .feature-box {
+        background-color: #421E59;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 700px;
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .feature-box:hover {
+        transform: scale(1.03);
+        background-color: #5129A6;
+    }
+    .feature-title {
+        color: #F2DFF2;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .feature-description {
+        color: #F2DFF2;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .app-button {
+        background-color: #5129A6;
+        color: #F2DFF2;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 12px 24px;
+        border-radius: 25px;
+        text-align: center;
+        margin: 10px;
+        display: inline-block;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .app-button:hover {
+        background-color: #763DF2;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .intro-statement {
+        background-color: #421E59;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 30px 0;
+        text-align: center;
+        font-size: 18px;
+        color: #F2DFF2;
+    }
+    p {
+        color: #F2DFF2;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -45,12 +131,10 @@ def extract_pptx_text(uploaded_file):
 # Function to generate detailed notes using Groq API
 def generate_detailed_notes_with_groq(text):
     chat_completion = client.chat.completions.create(
-        messages=[
-            {
-                "role": "user",
-                "content": f"Please summarize the following text in a structured manner with headings, subheadings, and bullet points. Make the explanation clear and understandable:\n\n{text}",
-            }
-        ],
+        messages=[{
+            "role": "user",
+            "content": f"Please summarize the following text in a structured manner with headings, subheadings, and bullet points. Make the explanation clear and understandable:\n\n{text}",
+        }],
         model="llama3-8b-8192",
     )
     return chat_completion.choices[0].message.content
@@ -60,13 +144,12 @@ def extract_headings_and_content(text):
     headings_and_content = []
     lines = text.split('\n')
     
-    # Simple rule to detect headings (You can adjust this based on your file content)
     current_heading = None
     current_content = []
     
     for line in lines:
-        if line.strip():  # Skip empty lines
-            if line.isupper():  # Assuming headings are in uppercase
+        if line.strip():
+            if line.isupper():
                 if current_heading:
                     headings_and_content.append((current_heading, '\n'.join(current_content)))
                 current_heading = line.strip()
@@ -74,7 +157,6 @@ def extract_headings_and_content(text):
             else:
                 current_content.append(line.strip())
     
-    # Add the last section
     if current_heading:
         headings_and_content.append((current_heading, '\n'.join(current_content)))
     
@@ -99,7 +181,6 @@ def main():
         if generate_button:
             full_text = ""
             
-            # Extracting text from all uploaded files
             for uploaded_file in uploaded_files:
                 if uploaded_file.type == "application/pdf":
                     full_text += extract_pdf_text(uploaded_file)
@@ -109,23 +190,17 @@ def main():
                     full_text += extract_pptx_text(uploaded_file)
             
             if full_text:
-                # Generate detailed notes using Groq API
                 detailed_notes = generate_detailed_notes_with_groq(full_text)
-                
-                # Extract headings and content
                 headings_and_content = extract_headings_and_content(full_text)
                 
-                # Display headings and detailed content
                 st.subheader("Extracted Notes 📚")
                 for heading, content in headings_and_content:
                     st.write(f"### {heading}")
                     st.write(content)
                 
-                # Display Groq generated notes
                 st.subheader("Structured AI-Generated Notes 🤖")
                 st.write(detailed_notes)
                 
-                # You can add links to additional resources here if needed
                 st.write("For additional resources, refer to [Groq API Docs](https://groq.com/docs).")
 
 if __name__ == "__main__":
