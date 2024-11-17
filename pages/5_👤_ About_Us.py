@@ -96,36 +96,44 @@ def main():
     st.markdown("<h2 class='section-header'>👨‍💻 Meet the Team 🚀</h2>", unsafe_allow_html=True)
     
     # Team members
-    team_members = [
-        {
-            "name": "💻 Muhammad Khaqan Nasir",
-            "github": "khaqan-nasir",
-            "linkedin": "muhammad-khaqan-nasir",
-            "image": "assets/1.jpg"  # Replace with your image URL
-        },
-        {
-            "name": "🖥️ Muhammad Adnan Tariq",
-            "github": "adnan-tariq",
-            "linkedin": "muhammad-adnan-tariq",
-            "image": "../2.jpeg"  # Replace with your friend's image URL
-        }
-    ]
+    # Add the team members
+team_members = [
+    {
+        "name": "💻 Muhammad Khaqan Nasir",
+        "github": "KhaqanNasir",
+        "linkedin": "khaqan-nasir",
+        "image": "../assets/1.jpg"  # Path to the local JPG image
+    },
+    {
+        "name": "🖥️ Muhammad Adnan Tariq",
+        "github": "adnan-tariq",
+        "linkedin": "muhammad-adnan-tariq",
+        "image": "../assets/2.jpeg"  # Path to the local JPEG image
+    }
+]
 
-    cols = st.columns(len(team_members))
-    for col, member in zip(cols, team_members):
-        with col:
-            st.markdown(f"""
-                <div class='feature-box'>
-                    <div class='circular-image'>
-                        <img src="{member['image']}" alt="{member['name']}">
-                    </div>
-                    <div class='team-member-name'>{member['name']}</div>
-                    <div class='social-links'>
-                        <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>🐙 GitHub</a>
-                        <a href='https://linkedin.com/in/{member["linkedin"]}' target='_blank' class='social-button'>🔗 LinkedIn</a>
-                    </div>
+# Render the team members with icons
+cols = st.columns(len(team_members))
+for col, member in zip(cols, team_members):
+    with col:
+        image_base64 = open(member['image'], 'rb').read().encode('base64').decode('utf-8')
+        st.markdown(f"""
+            <div class='feature-box'>
+                <div class='circular-image'>
+                    <img src="data:image/jpeg;base64,{image_base64}" alt="{member['name']}">
                 </div>
-            """, unsafe_allow_html=True)
+                <div class='team-member-name'>{member['name']}</div>
+                <div class='social-links'>
+                    <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>
+                        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="20"> GitHub
+                    </a>
+                    <a href='https://linkedin.com/in/{member["linkedin"]}' target='_blank' class='social-button'>
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="20"> LinkedIn
+                    </a>
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+
 
 if __name__ == "__main__":
     st.set_page_config(
