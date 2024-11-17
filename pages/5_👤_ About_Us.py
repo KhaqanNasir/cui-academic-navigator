@@ -96,9 +96,6 @@ def main():
     st.markdown("<p class='tagline'>🤝 Crafted with love and precision by your dedicated team! 🎨✨</p>", unsafe_allow_html=True)
     st.markdown("<h2 class='section-header'>👨‍💻 Meet the Team 🚀</h2>", unsafe_allow_html=True)
 
-   import streamlit as st
-import os
-
 # Define the path to your images (assuming the images are in the 'data' folder)
 image_path_1 = os.path.join(os.path.dirname(__file__), 'assets', '1.jpg')  # Image for the first team member
 image_path_2 = os.path.join(os.path.dirname(__file__), 'assets', '2.jpeg')  # Image for the second team member
