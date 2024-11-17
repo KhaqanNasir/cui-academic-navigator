@@ -118,7 +118,7 @@ def main():
     st.markdown("<p class='tagline'>Your AI-Powered Academic Assistant 🎓✨</p>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        st.image("logo.png", width=100, use_column_width=True)
+        st.image("logo.png", width=80, use_column_width=True)
 
     # Features Section
     st.markdown("<h2 class='section-header'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
