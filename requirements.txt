@@ -1,0 +1,9 @@
+os
+streamlit
+pandas
+groq
+pdfplumber
+python-docx
+python-pptx
+requests
+beautifulsoup4
