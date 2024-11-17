@@ -9,7 +9,7 @@ os.environ["GROQ_API_KEY"] = GROQ_API_KEY
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # Load course data
-data_path = '/content/COMSATSDATASET.xlsx'  
+data_path = 'assets/COMSATSDATASET.xlsx'  
 courses_df = pd.read_excel(data_path)
 
 # Streamlit UI setup
