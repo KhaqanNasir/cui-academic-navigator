@@ -123,7 +123,7 @@ st.markdown("""
         text-align: right;
     }
     .button-container {
-        text-align: center;
+        text-align: left;
         margin-top: 20px;
     }
     .section-header {
@@ -132,7 +132,7 @@ st.markdown("""
         font-weight: bold;
         margin-top: 40px;
         margin-bottom: 20px;
-        text-align: center;
+        text-align: left;
     }
     .app-button {
         background-color: #5129A6;
