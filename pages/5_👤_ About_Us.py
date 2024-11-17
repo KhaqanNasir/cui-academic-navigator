@@ -96,45 +96,48 @@ def main():
     st.markdown("<p class='tagline'>🤝 Crafted with love and precision by your dedicated team! 🎨✨</p>", unsafe_allow_html=True)
     st.markdown("<h2 class='section-header'>👨‍💻 Meet the Team 🚀</h2>", unsafe_allow_html=True)
 
-    image_path_1 = os.path.join(os.path.dirname(__file__), 'assets', '1.jpg') 
-    image_path_2 = os.path.join(os.path.dirname(__file__), 'assets', '2.jpeg')
+   import streamlit as st
+import os
 
-    
-    # Team members
-    team_members = [
-        {
-            "name": "💻 Muhammad Khaqan Nasir",
-            "github": "khaqan-nasir",
-            "linkedin": "muhammad-khaqan-nasir",
-            "image": image_path_1
-        },
-        {
-            "name": "🖥️ Muhammad Adnan Tariq",
-            "github": "adnan-tariq",
-            "linkedin": "muhammad-adnan-tariq",
-            "image": image_path_2
-        }
-    ]
+# Define the path to your images (assuming the images are in the 'data' folder)
+image_path_1 = os.path.join(os.path.dirname(__file__), 'assets', '1.jpg')  # Image for the first team member
+image_path_2 = os.path.join(os.path.dirname(__file__), 'assets', '2.jpeg')  # Image for the second team member
 
-    cols = st.columns(len(team_members))
-    for col, member in zip(cols, team_members):
-        with col:
-            st.markdown(f"""
-                <div class='feature-box'>
-                    <div class='circular-image'>
-                        <img src="{member['image']}" alt="{member['name']}">
-                    </div>
-                    <div class='team-member-name'>{member['name']}</div>
-                    <div class='social-links'>
-                       <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>
-                       <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="20"> GitHub
-                       </a>
-                       <a href='https://linkedin.com/in/{member["linkedin"]}' target='_blank' class='social-button'>
-                       <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="20"> LinkedIn
-                       </a>
-                    </div>
-                   </div>
-            """, unsafe_allow_html=True)
+team_members = [
+    {
+        "name": "💻 Muhammad Khaqan Nasir",
+        "github": "khaqan-nasir",
+        "linkedin": "muhammad-khaqan-nasir",
+        "image": image_path_1  # Use the path for local image 1
+    },
+    {
+        "name": "🖥️ Muhammad Adnan Tariq",
+        "github": "adnan-tariq",
+        "linkedin": "muhammad-adnan-tariq",
+        "image": image_path_2  # Use the path for local image 2
+    }
+]
+
+cols = st.columns(len(team_members))
+for col, member in zip(cols, team_members):
+    with col:
+        st.markdown(f"""
+            <div class='feature-box'>
+                <div class='circular-image'>
+                    <img src="file://{member['image']}" alt="{member['name']}">
+                </div>
+                <div class='team-member-name'>{member['name']}</div>
+                <div class='social-links'>
+                    <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>
+                        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="20"> GitHub
+                    </a>
+                    <a href='https://linkedin.com/in/{member["linkedin"]}' target='_blank' class='social-button'>
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="20"> LinkedIn
+                    </a>
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+
 
 if __name__ == "__main__":
     st.set_page_config(
