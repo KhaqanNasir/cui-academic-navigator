@@ -108,7 +108,7 @@ team_members = [
         "name": "🖥️ Muhammad Adnan Tariq",
         "github": "adnan-tariq",
         "linkedin": "muhammad-adnan-tariq",
-        "image": "../assets/2.jpeg"  # Path to the local JPEG image
+        "image": "https://drive.google.com/file/d/1OEAlWp3CVBmPUhDw8w6QpT4LrESgn1yf/view?usp=sharing"  # Path to the local JPEG image
     }
 ]
 
