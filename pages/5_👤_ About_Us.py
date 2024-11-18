@@ -97,46 +97,45 @@ def main():
     
     # Team members
     team_members = [
-     {
-        "name": "💻 Muhammad Khaqan Nasir",
-        "registration_no": "FA22-BCS-039",
-        "github": "#",
-        "linkedin": "#",
-        "image": "#"  # Replace with your image URL
-     },
-     {
-        "name": "🖥️ Khadija Riaz",
-        "registration_no": "FA22-BCS-038",
-        "github": "#",
-        "linkedin": "#",
-        "image": "#"  # Replace with your friend's image URL
-     },
-     {
-        "name": "🖥️ Ahsan Abdullah",
-        "registration_no": "FA22-BCS-015",
-        "github": "#",
-        "linkedin": "#",
-        "image": "#"  # Replace with your friend's image URL
-     }
-  ]
+        {
+            "name": "💻 Muhammad Khaqan Nasir",
+            "registration_no": "FA22-BCS-039",
+            "github": "#",
+            "linkedin": "#",
+            "image": "#"  # Replace with your image URL
+        },
+        {
+            "name": "🖥️ Khadija Riaz",
+            "registration_no": "FA22-BCS-038",
+            "github": "#",
+            "linkedin": "#",
+            "image": "#"  # Replace with your friend's image URL
+        },
+        {
+            "name": "🖥️ Ahsan Abdullah",
+            "registration_no": "FA22-BCS-015",
+            "github": "#",
+            "linkedin": "#",
+            "image": "#"  # Replace with your friend's image URL
+        }
+    ]
 
- cols = st.columns(len(team_members))
- for col, member in zip(cols, team_members):
-    with col:
-        st.markdown(f"""
-            <div class='feature-box'>
-                <div class='circular-image'>
-                    <img src="{member['image']}" alt="{member['name']}">
+    cols = st.columns(len(team_members))
+    for col, member in zip(cols, team_members):
+        with col:
+            st.markdown(f"""
+                <div class='feature-box'>
+                    <div class='circular-image'>
+                        <img src="{member['image']}" alt="{member['name']}">
+                    </div>
+                    <div class='team-member-name'>{member['name']}</div>
+                    <div class='team-member-name'>{member['registration_no']}</div>
+                    <div class='social-links'>
+                        <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>🐙 GitHub</a>
+                        <a href='https://linkedin.com/in/{member["linkedin"]}' target='_blank' class='social-button'>🔗 LinkedIn</a>
+                    </div>
                 </div>
-                <div class='team-member-name'>{member['name']}</div>
-                <div class='team-member-name'>{member['registration_no']}</div>
-                <div class='social-links'>
-                    <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>🐙 GitHub</a>
-                    <a href='https://linkedin.com/in/{member["linkedin"]}' target='_blank' class='social-button'>🔗 LinkedIn</a>
-                </div>
-            </div>
-        """, unsafe_allow_html=True)
-
+            """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     st.set_page_config(
