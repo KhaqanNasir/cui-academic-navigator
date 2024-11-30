@@ -14,3 +14,8 @@ streamlit
 python-pptx
 Pillow
 google-fonts
+torch
+transformers
+streamlit
+matplotlib
+docx2txt
