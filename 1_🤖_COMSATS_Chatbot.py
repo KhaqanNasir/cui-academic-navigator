@@ -139,6 +139,10 @@ def main():
             "title": "🎙️ Multilingual TTS Chatbot",
             "description": "Generate speech in your preferred language, voice, and tone.! 🌟"
         },
+         {
+            "title": "📊 AI-Powered Presentation Generator",
+            "description": "Create professional presentations effortlessly with AI-powered content and formatting! 📊✨"
+        },
         {
             "title": "👤 About Us",
             "description": "Discover the vision, team, and journey behind this app. Join us on our mission to innovate education! 🌟"
@@ -161,6 +165,7 @@ def main():
         <a href="/Notes_Maker" class="app-button">📝 Notes Maker</a>
         <a href="/Campus_Information" class="app-button">🏫 Campus Info</a>
         <a href="/Multilingual_TTS_Chatbot" class="app-button">🎙️ Multilingual TTS Chatbot</a>
+        <a href="/PPT_Generator" class="app-button">📊 AI-Powered Presentation Generator</a>
         <a href="/About_Us" class="app-button">👤 About Us</a>
     </div>
     """, unsafe_allow_html=True)
