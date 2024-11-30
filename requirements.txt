@@ -19,4 +19,4 @@ transformers
 streamlit
 matplotlib
 docx2txt
-whisper
+openai-whisper
