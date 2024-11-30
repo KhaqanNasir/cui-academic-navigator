@@ -19,3 +19,4 @@ transformers
 streamlit
 matplotlib
 docx2txt
+base64
