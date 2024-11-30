@@ -31,7 +31,7 @@ def main():
         Our team has put in countless hours to design and develop this platform with the goal of offering the best user experience and helping students achieve their academic goals. 
         We're always here to assist, innovate, and evolve with you! 🚀
         <br><br>
-        Thank you for using the CUI Sahiwal Academic Navigator! We hope it empowers your educational journey.
+        Thank you for using the CUI Sahiwal Academic Navigator! We hope it empowers your educational journey ❤️.
      </p>
     """, unsafe_allow_html=True)
 
@@ -78,10 +78,10 @@ def main():
                     <div style='font-size: 18px; color: #5F6366;'>{member['registration_no']}</div>
                     <div style='margin-top: 10px;'>
                         <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>
-                           <i class="fab fa-github" style="font-size: 20px; color: #000000;"></i> GitHub
+                           <i class="fab fa-github" style="font-size: 20px; color: #000000; margin: 3px;"></i> GitHub
                         </a>
                         <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>
-                           <i class="fab fa-github" style="font-size: 20px; color: #000000;"></i> Linkedin
+                           <i class="fab fa-github" style="font-size: 20px; color: #000000; margin: 3px;"></i> Linkedin
                         </a>
                     </div>
                 </div>
