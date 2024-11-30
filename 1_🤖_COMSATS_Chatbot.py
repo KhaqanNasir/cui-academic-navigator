@@ -128,7 +128,7 @@ def main():
             "description": "Get tailored study plans based on your course outline. Make your study time super productive! 🕒"
         },
         {
-            "title": "📝 Notes Maker",
+            "title": "📝 Study Notes Maker",
             "description": "Effortlessly organize and create notes from your lectures or resources. Stay ahead with well-structured notes! 📓"
         },
         {
@@ -166,7 +166,7 @@ def main():
     st.markdown("""
     <div style='text-align:center;'>
         <a href="/Personalized_Study_Bot" class="app-button">📘 Study Chatbot</a>
-        <a href="/Notes_Maker" class="app-button">📝 Notes Maker</a>
+        <a href="/Study_Notes_Maker" class="app-button">📝 Study Notes Maker</a>
         <a href="/Campus_Information" class="app-button">🏫 Campus Info</a>
         <a href="/Multilingual_TTS_Chatbot" class="app-button">🎙️ Multilingual TTS Chatbot</a>
         <a href="/PPT_Generator" class="app-button">📊 AI-Powered Presentation Generator</a>
