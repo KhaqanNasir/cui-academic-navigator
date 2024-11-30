@@ -24,7 +24,17 @@ def main():
     
     # Main Title
     st.markdown("<h1 style='text-align:center;'>🌟 About Us 🌟</h1>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align:center;'>🤝 Crafted with love and precision by your dedicated team! 🎨✨</p>", unsafe_allow_html=True)
+    st.markdown("""
+     <p style='text-align:center; font-size: 22px; line-height: 1.8;'>
+        🤝 Crafted with love and precision by your dedicated team! 🎨✨
+        <br><br>
+        Our team has put in countless hours to design and develop this platform with the goal of offering the best user experience and helping students achieve their academic goals. 
+        We're always here to assist, innovate, and evolve with you! 🚀
+        <br><br>
+        Thank you for using the CUI Sahiwal Academic Navigator! We hope it empowers your educational journey.
+     </p>
+    """, unsafe_allow_html=True)
+
     
     st.markdown("<h2 style='text-align:center;'>👨‍💻 Meet the Team 🚀</h2>", unsafe_allow_html=True)
     
@@ -70,12 +80,8 @@ def main():
                         <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>
                            <i class="fab fa-github" style="font-size: 20px; color: #000000;"></i> GitHub
                         </a>
-
-                        <a href='https://linkedin.com/in/{member["linkedin"]}' target='_blank' style='text-decoration: none; font-size: 14px; color: #007bff; margin-left: 10px;'>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" style="fill:#007bff;">
-                                <path d="M19 0H5C3.9 0 3 .9 3 2v20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zM8.5 17h-2v-7h2v7zM7.5 9.75c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM18 17h-2v-3.5c0-1.12-.91-2-2-2s-2 .88-2 2V17h-2v-7h2v1.09c.34-.62 1.04-1.09 1.89-1.09 1.48 0 2.61 1.25 2.61 2.61V17z"/>
-                            </svg>
-                            LinkedIn
+                        <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>
+                           <i class="fab fa-github" style="font-size: 20px; color: #000000;"></i> Linkedin
                         </a>
                     </div>
                 </div>
