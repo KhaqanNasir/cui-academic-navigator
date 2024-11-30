@@ -27,7 +27,7 @@ def main():
             "registration_no": "FA22-BCS-039",
             "github": "#",
             "linkedin": "#",
-            "image": "#"  # Replace with your image URL
+            "image": "assets/Profile_Pic_Updated (1).jpg"  # Replace with your image URL
         },
         {
             "name": "🖥️ Khadija Riaz",
