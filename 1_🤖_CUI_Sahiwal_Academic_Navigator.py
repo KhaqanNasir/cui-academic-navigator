@@ -64,16 +64,30 @@ def main():
     # Navigation Buttons
     st.header("🚀 Explore Our Chatbots")
     st.markdown("""
-    <div style='text-align:center;'>
-        <a href="/Personalized_Study_Bot" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">📘 Study Chatbot</a>
-        <a href="/Study_Notes_Maker" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">📝 Study Notes Maker</a>
-        <a href="/Campus_Insight_AI" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">🤖 Campus Insight AI</a>
-        <a href="/Multilingual_TTS_Chatbot" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">🎙️ Multilingual TTS Chatbot</a>
-        <a href="/PPT_Generator" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">📊 AI-Powered Presentation Generator</a>
-        <a href="/CV_Analysis" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">📄 CV Analysis</a>
-        <a href="/About_Us" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">👤 About Us</a>
-    </div>
+      <div style='text-align:center;'>
+         <a href="/Personalized_Study_Bot" style="background-color: #007bff; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">📘 Study Chatbot</a>
+         <a href="/Study_Notes_Maker" style="background-color: #28a745; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">📝 Study Notes Maker</a>
+         <a href="/Campus_Insight_AI" style="background-color: #ffc107; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">🤖 Campus Insight AI</a>
+         <a href="/Multilingual_TTS_Chatbot" style="background-color: #6f42c1; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">🎙️ Multilingual TTS Chatbot</a>
+         <a href="/PPT_Generator" style="background-color: #fd7e14; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">📊 AI-Powered Presentation Generator</a>
+         <a href="/CV_Analysis" style="background-color: #343a40; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">📄 CV Analysis</a>
+         <a href="/About_Us" style="background-color: #6c757d; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">👤 About Us</a>
+      </div>
+     <style>
+      @media (max-width: 768px) {
+        div {
+            text-align: center;
+        }
+        a {
+            display: block;
+            margin: 10px auto;
+            width: 80%;
+            font-size: 16px;
+        }
+      }
+     </style>
     """, unsafe_allow_html=True)
+
 
     # Intro Statement
     st.markdown("""
