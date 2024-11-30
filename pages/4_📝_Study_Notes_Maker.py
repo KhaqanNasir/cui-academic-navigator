@@ -5,6 +5,14 @@ import pptx
 import os
 from groq import Groq
 
+# Set page config as the first command
+st.set_page_config(
+    page_title="Study Notes Generator | Notes Maker",
+    page_icon="📚",
+    layout="wide",  
+    initial_sidebar_state="collapsed"
+)
+
 # Initialize Groq client with your API key
 client = Groq(api_key="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")
 
@@ -133,10 +141,4 @@ st.markdown("""
 """)
 
 if __name__ == "__main__":
-    st.set_page_config(
-        page_title="Study Notes Generator | Notes Maker",
-        page_icon="📚",
-        layout="wide",  
-        initial_sidebar_state="collapsed"
-    )
     main()
