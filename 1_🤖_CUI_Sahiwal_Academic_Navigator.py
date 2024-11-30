@@ -12,14 +12,15 @@ st.set_page_config(
 def main():
     # Title and Logo
     st.markdown("<h1 style='text-align:center;'>🤖 CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
-    st.markdown("### Your AI-Powered Academic Assistant 🎓✨")
+    st.markdown("<h3 style='text-align:center;'>Your AI-Powered Academic Assistant 🎓✨</h3>", unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        st.image("logo.png", width=50, use_column_width=True)
+        st.image("logo.png", width=60, use_column_width=True)
 
     # Features Section
-    st.header("🌟 Features 🌟")
+    st.markdown("<h2 style='text-align:center;'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
+    
     features = [
         {
             "title": "📘 Personalized Study Chatbot",
@@ -53,11 +54,12 @@ def main():
 
     for feature in features:
         st.markdown(f"""
-        <div style='border: 2px solid #007bff; padding: 15px; margin: 10px 0; border-radius: 10px;'>
-            <h3>{feature['title']}</h3>
-            <p>{feature['description']}</p>
+        <div style='background-color: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 10px;'>
+            <h3 style='color: #D3D3D3;'>{feature['title']}</h3>
+            <p style='color: #D3D3D3;'>{feature['description']}</p>
         </div>
         """, unsafe_allow_html=True)
+        
 
     # Navigation Buttons
     st.header("🚀 Explore Our Chatbots")
