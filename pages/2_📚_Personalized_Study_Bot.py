@@ -3,6 +3,14 @@ import streamlit as st
 import pandas as pd
 from groq import Groq
 
+# Set up Streamlit page config (must be the first Streamlit command)
+st.set_page_config(
+    page_title="Personalized Study Plan Generator",
+    page_icon="📚",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
+
 # Set up the Groq client and API key
 GROQ_API_KEY = "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"
 os.environ["GROQ_API_KEY"] = GROQ_API_KEY
@@ -94,10 +102,4 @@ def main():
     )
 
 if __name__ == "__main__":
-    st.set_page_config(
-        page_title="Personalized Study Plan Generator",
-        page_icon="📘",
-        layout="wide",
-        initial_sidebar_state="collapsed"
-    )
     main()
