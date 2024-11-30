@@ -54,7 +54,7 @@ def main():
 
     for feature in features:
         st.markdown(f"""
-        <div style='background-color: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 10px;'>
+        <div style='background-color: #5F6366; padding: 15px; margin: 10px 0; border-radius: 10px;'>
             <h3 style='color: #D3D3D3;'>{feature['title']}</h3>
             <p style='color: #D3D3D3;'>{feature['description']}</p>
         </div>
