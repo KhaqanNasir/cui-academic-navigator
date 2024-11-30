@@ -16,7 +16,7 @@ def main():
 
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        st.image("logo.png", height=60, use_column_width=True)
+        st.image("logo.png", width=60px, use_column_width=True)
 
     # Features Section
     st.markdown("<h2 style='text-align:center;'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
