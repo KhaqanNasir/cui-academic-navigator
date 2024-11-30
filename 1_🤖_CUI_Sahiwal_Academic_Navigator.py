@@ -16,7 +16,7 @@ def main():
 
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        st.image("logo.png", width=60, use_column_width=True)
+        st.image("logo.png", height=60, use_column_width=True)
 
     # Features Section
     st.markdown("<h2 style='text-align:center;'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
@@ -62,7 +62,7 @@ def main():
         
 
     # Navigation Buttons
-    st.header("🚀 Explore Our Chatbots")
+    st.markdown("<h1 style='text-align: center;'>🚀 Explore Our Chatbots</h1>", unsafe_allow_html=True)
     st.markdown("""
       <div style='text-align:center;'>
          <a href="/Personalized_Study_Bot" style="background-color: #007bff; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">📘 Study Chatbot</a>
