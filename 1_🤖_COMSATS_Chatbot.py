@@ -144,6 +144,10 @@ def main():
             "description": "Create professional presentations effortlessly with AI-powered content and formatting! 📊✨"
         },
         {
+            "title": "📄 CV Analysis",
+            "description": "Analyze CVs effortlessly with AI to rank candidates based on skills and experience, helping you find the best fit for the job! 📄🤖"
+        },
+        {
             "title": "👤 About Us",
             "description": "Discover the vision, team, and journey behind this app. Join us on our mission to innovate education! 🌟"
         }
@@ -166,6 +170,7 @@ def main():
         <a href="/Campus_Information" class="app-button">🏫 Campus Info</a>
         <a href="/Multilingual_TTS_Chatbot" class="app-button">🎙️ Multilingual TTS Chatbot</a>
         <a href="/PPT_Generator" class="app-button">📊 AI-Powered Presentation Generator</a>
+        <a href="/CV_Analysis" class="app-button">📄 CV Analysis</a>
         <a href="/About_Us" class="app-button">👤 About Us</a>
     </div>
     """, unsafe_allow_html=True)
