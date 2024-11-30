@@ -11,12 +11,12 @@ st.set_page_config(
 # Main Page Layout
 def main():
     # Title and Logo
-    st.title("🤖 CUI Sahiwal Academic Navigator")
+    st.markdown("<h1 style='text-align:center;'>🤖 CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
     st.markdown("### Your AI-Powered Academic Assistant 🎓✨")
 
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        st.image("logo.png", width=60, use_column_width=True)
+        st.image("logo.png", width=50, use_column_width=True)
 
     # Features Section
     st.header("🌟 Features 🌟")
@@ -35,7 +35,7 @@ def main():
         },
         {
             "title": "🎙️ Multilingual TTS Chatbot",
-            "description": "Generate speech in your preferred language, voice, and tone.! 🌟"
+            "description": "Generate speech in your preferred language, voice, and tone! 🌟"
         },
         {
             "title": "📊 AI-Powered Presentation Generator",
@@ -52,27 +52,31 @@ def main():
     ]
 
     for feature in features:
-        st.subheader(feature['title'])
-        st.write(feature['description'])
+        st.markdown(f"""
+        <div style='border: 2px solid #007bff; padding: 15px; margin: 10px 0; border-radius: 10px;'>
+            <h3>{feature['title']}</h3>
+            <p>{feature['description']}</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     # Navigation Buttons
     st.header("🚀 Explore Our Chatbots")
     st.markdown("""
     <div style='text-align:center;'>
-        <a href="/Personalized_Study_Bot" class="stButton">📘 Study Chatbot</a>
-        <a href="/Study_Notes_Maker" class="stButton">📝 Study Notes Maker</a>
-        <a href="/Campus_Insight_AI" class="stButton">🤖 Campus Insight AI</a>
-        <a href="/Multilingual_TTS_Chatbot" class="stButton">🎙️ Multilingual TTS Chatbot</a>
-        <a href="/PPT_Generator" class="stButton">📊 AI-Powered Presentation Generator</a>
-        <a href="/CV_Analysis" class="stButton">📄 CV Analysis</a>
-        <a href="/About_Us" class="stButton">👤 About Us</a>
+        <a href="/Personalized_Study_Bot" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">📘 Study Chatbot</a>
+        <a href="/Study_Notes_Maker" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">📝 Study Notes Maker</a>
+        <a href="/Campus_Insight_AI" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">🤖 Campus Insight AI</a>
+        <a href="/Multilingual_TTS_Chatbot" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">🎙️ Multilingual TTS Chatbot</a>
+        <a href="/PPT_Generator" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">📊 AI-Powered Presentation Generator</a>
+        <a href="/CV_Analysis" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">📄 CV Analysis</a>
+        <a href="/About_Us" style="border: 2px solid #007bff; padding: 10px 20px; font-size:18px; margin: 5px; border-radius: 8px; text-decoration: none;">👤 About Us</a>
     </div>
     """, unsafe_allow_html=True)
 
     # Intro Statement
     st.markdown("""
     <div style='background-color:#f8f9fa; border-radius:10px; padding:20px; margin:20px 0;'>
-        <p style='font-family:Poppins; font-size:18px; text-align:center;'>📢 Welcome to the CUI Sahiwal Academic Navigator! This AI-powered platform is designed to help you succeed academically by offering personalized study plans, automated tools, and campus insights. Explore now and unlock your full potential! 🚀</p>
+        <p style='font-size:18px; text-align:center;'>📢 Welcome to the CUI Sahiwal Academic Navigator! This AI-powered platform is designed to help you succeed academically by offering personalized study plans, automated tools, and campus insights. Explore now and unlock your full potential! 🚀</p>
     </div>
     """, unsafe_allow_html=True)
 
