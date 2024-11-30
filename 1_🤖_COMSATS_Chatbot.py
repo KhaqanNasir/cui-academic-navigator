@@ -132,7 +132,7 @@ def main():
             "description": "Effortlessly organize and create notes from your lectures or resources. Stay ahead with well-structured notes! 📓"
         },
         {
-            "title": "🏫 Campus Information Chatbot",
+            "title": "🤖 Campus Insight AI",
             "description": "Learn about campus details, events, and services. Stay informed and connected! 🎉"
         },
         {
@@ -167,7 +167,7 @@ def main():
     <div style='text-align:center;'>
         <a href="/Personalized_Study_Bot" class="app-button">📘 Study Chatbot</a>
         <a href="/Study_Notes_Maker" class="app-button">📝 Study Notes Maker</a>
-        <a href="/Campus_Information" class="app-button">🏫 Campus Info</a>
+        <a href="/Campus_Information" class="app-button">🤖 Campus Insight AI</a>
         <a href="/Multilingual_TTS_Chatbot" class="app-button">🎙️ Multilingual TTS Chatbot</a>
         <a href="/PPT_Generator" class="app-button">📊 AI-Powered Presentation Generator</a>
         <a href="/CV_Analysis" class="app-button">📄 CV Analysis</a>
