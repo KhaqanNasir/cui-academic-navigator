@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import base64
 
 def load_css():
     st.markdown("""
@@ -11,6 +12,12 @@ def load_css():
     }
     </style>
     """, unsafe_allow_html=True)
+
+def encode_image(image_path):
+    # Read and encode image in base64 format
+    with open(image_path, "rb") as image_file:
+        encoded_image = base64.b64encode(image_file.read()).decode("utf-8")
+    return encoded_image
 
 def main():
     load_css()
@@ -50,10 +57,12 @@ def main():
     cols = st.columns(len(team_members))
     for col, member in zip(cols, team_members):
         with col:
+            # Encode image to base64
+            encoded_image = encode_image(member['image'])
             st.markdown(f"""
                 <div style='background-color: #f8f9fa; border-radius: 10px; padding: 20px; margin-bottom: 20px; text-align: center;'>
                     <div style='border-radius: 50%; overflow: hidden; width: 150px; height: 150px; margin: 0 auto;'>
-                        <img src="data:image/jpeg;base64,{open(member['image'], 'rb').read().encode('base64')}" alt="{member['name']}" style='width:100%; height:100%; object-fit: cover;'>
+                        <img src="data:image/jpeg;base64,{encoded_image}" alt="{member['name']}" style='width:100%; height:100%; object-fit: cover;'>
                     </div>
                     <div style='font-size: 22px; font-weight: 600; color: #5F6366;'>{member['name']}</div>
                     <div style='font-size: 18px; color: #5F6366;'>{member['registration_no']}</div>
