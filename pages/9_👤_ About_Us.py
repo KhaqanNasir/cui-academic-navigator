@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
 def load_css():
     st.markdown("""
@@ -27,21 +28,21 @@ def main():
             "registration_no": "FA22-BCS-039",
             "github": "#",
             "linkedin": "#",
-            "image": "assets/Profile_Pic_Updated (1).jpg"  # Replace with your image URL
+            "image": os.path.join(os.path.dirname(__file__), 'assets', 'Profile_Pic_Updat.jpg')  # Path to local image
         },
         {
             "name": "🖥️ Khadija Riaz",
             "registration_no": "FA22-BCS-038",
             "github": "#",
             "linkedin": "#",
-            "image": "#"  # Replace with your friend's image URL
+            "image": os.path.join(os.path.dirname(__file__), 'assets', 'member2.jpg')  # Path to local image
         },
         {
             "name": "🖥️ Ahsan Abdullah",
             "registration_no": "FA22-BCS-015",
             "github": "#",
             "linkedin": "#",
-            "image": "#"  # Replace with your friend's image URL
+            "image": os.path.join(os.path.dirname(__file__), 'assets', 'member3.jpg')  # Path to local image
         }
     ]
     
@@ -50,12 +51,12 @@ def main():
     for col, member in zip(cols, team_members):
         with col:
             st.markdown(f"""
-                <div style='background-color: #63676A; border-radius: 10px; padding: 20px; margin-bottom: 20px; text-align: center; color: white;'>
+                <div style='background-color: #f8f9fa; border-radius: 10px; padding: 20px; margin-bottom: 20px; text-align: center;'>
                     <div style='border-radius: 50%; overflow: hidden; width: 150px; height: 150px; margin: 0 auto;'>
-                        <img src="{member['image']}" alt="{member['name']}" style='width:100%; height:100%; object-fit: cover;'>
+                        <img src="data:image/jpeg;base64,{open(member['image'], 'rb').read().encode('base64')}" alt="{member['name']}" style='width:100%; height:100%; object-fit: cover;'>
                     </div>
-                    <div style='font-size: 22px; font-weight: 600;'>{member['name']}</div>
-                    <div style='font-size: 18px; color:'>{member['registration_no']}</div>
+                    <div style='font-size: 22px; font-weight: 600; color: #5F6366;'>{member['name']}</div>
+                    <div style='font-size: 18px; color: #5F6366;'>{member['registration_no']}</div>
                     <div style='margin-top: 10px;'>
                         <a href='https://github.com/{member["github"]}' target='_blank' style='text-decoration: none; font-size: 14px;'>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" style="fill:#000000;">
