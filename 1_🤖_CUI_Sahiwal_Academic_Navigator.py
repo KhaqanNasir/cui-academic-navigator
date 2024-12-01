@@ -20,10 +20,11 @@ def main():
         font-family: 'Poppins', sans-serif;
     }
     *{
-    font-family: 'Poppins', sans-serif;
+        font-family: 'Poppins', sans-serif;
     }
     div {
-        font-family: 'Poppins', sans-serif;   
+        font-family: 'Poppins', sans-serif; 
+        text-align: center;
     }
 
     a {
