@@ -43,8 +43,8 @@ def main():
         {
             "name": "💻 Muhammad Khaqan Nasir",
             "registration_no": "FA22-BCS-039",
-            "github": "https://github.com/KhaqanNasir",
-            "linkedin": "https://www.linkedin.com/in/khaqan-nasir/",
+            "github": "KhaqanNasir",
+            "linkedin": "khaqan-nasir",
         "image": os.path.join(os.path.dirname(__file__), 'assets', 'member01.jpeg') 
         },
         {
