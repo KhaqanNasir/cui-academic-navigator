@@ -16,8 +16,7 @@ def main():
     # col1, col2, col3 = st.columns([1, 1, 1])
     # with col2:
     #     st.image("bg.png", width=60, use_column_width=True)
-    # st.image("bg.png", use_column_width=True)
-    st.markdown('<img src="bg.png" class="custom-image" />', unsafe_allow_html=True)
+    st.image("bg.png", use_column_width=True)
 
     # Features Section
     st.markdown("<h2 style='text-align:center;'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
@@ -89,12 +88,6 @@ def main():
             margin: 10px auto;
             width: 80%;
             font-size: 16px;
-        }
-        .custom-image{
-            display: block;
-            margin: 0 auto; 
-            width: 100%;
-            padding: 0;
         }
       }
      </style>
