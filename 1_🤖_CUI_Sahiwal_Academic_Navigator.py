@@ -19,9 +19,6 @@ def main():
     html, body, [class*="css"]  {
         font-family: 'Poppins', sans-serif;
     }
-    *{
-        font-family: 'Poppins', sans-serif;
-    }
     div {
         font-family: 'Poppins', sans-serif; 
         text-align: center;
@@ -29,7 +26,7 @@ def main():
 
     a {
         text-decoration: none;
-        font-weight: 700;
+        font-weight: 500;
         font-family: 'Poppins', sans-serif;
     }
     a:hover {
@@ -39,14 +36,14 @@ def main():
     """, unsafe_allow_html=True)
 
     # Title and Logo
-    st.markdown("<h1 style='text-align:center;'>🤖 CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align:center;'>Your AI-Powered Academic Assistant 🎓✨</h3>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align:center; font-family: 'Poppins', sans-serif;'>🤖 CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align:center; font-family: 'Poppins', sans-serif;'>Your AI-Powered Academic Assistant 🎓✨</h3>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 0.7, 1])
     with col2:
         st.image("logo.png", use_column_width=True)
 
     # Features Section
-    st.markdown("<h2 style='text-align:center;'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align:center; font-family: 'Poppins', sans-serif;'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
     
     features = [
         {
