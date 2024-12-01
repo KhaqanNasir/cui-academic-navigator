@@ -14,9 +14,7 @@ def main():
     st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-    
-    /* Apply Poppins font to the entire app */
-    html, body, [class*="css"]  {
+    html, body, [class*="css"], *{
         font-family: 'Poppins', sans-serif;
     }
     div {
@@ -36,7 +34,7 @@ def main():
     """, unsafe_allow_html=True)
 
     # Title and Logo
-    st.markdown("<h1 style='text-align:center; font-family: 'Poppins', sans-serif;'>🤖 CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align:center; font-family: 'Poppins', sans-serif; font-size: 100px;'>🤖 CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align:center; font-family: 'Poppins', sans-serif;'>Your AI-Powered Academic Assistant 🎓✨</h3>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 0.7, 1])
     with col2:
