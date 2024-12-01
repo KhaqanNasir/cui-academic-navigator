@@ -11,9 +11,8 @@ st.set_page_config(
 # Main Page Layout
 def main():
     # Title and Logo
-    st.markdown("<h1 style='text-align:center;'>🤖 CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align:center;'>Your AI-Powered Academic Assistant 🎓✨</h3>", unsafe_allow_html=True)
-
+    # st.markdown("<h1 style='text-align:center;'>🤖 CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
+    # st.markdown("<h3 style='text-align:center;'>Your AI-Powered Academic Assistant 🎓✨</h3>", unsafe_allow_html=True)
     # col1, col2, col3 = st.columns([1, 1, 1])
     # with col2:
     #     st.image("bg.png", width=60, use_column_width=True)
