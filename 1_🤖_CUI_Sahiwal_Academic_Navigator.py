@@ -19,6 +19,9 @@ def main():
     html, body, [class*="css"]  {
         font-family: 'Poppins', sans-serif;
     }
+    div {
+        font-family: 'Poppins', sans-serif;   
+    }
 
     a {
         text-decoration: none;
