@@ -34,7 +34,7 @@ def main():
     """, unsafe_allow_html=True)
 
     # Title and Logo
-    st.markdown("<h1 style='text-align:center; font-family: 'Poppins', sans-serif; font-size: 100px;'>🤖 CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align:center; font-family: 'Poppins', sans-serif;'>🤖 CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align:center; font-family: 'Poppins', sans-serif;'>Your AI-Powered Academic Assistant 🎓✨</h3>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 0.7, 1])
     with col2:
@@ -95,7 +95,7 @@ def main():
          <a href="/Study_Notes_Maker" style="background-color: #28a745; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">📝 Study Notes Maker</a>
          <a href="/Campus_Insight_AI" style="background-color: #ffc107; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">🤖 Campus Insight AI</a>
          <a href="/Multilingual_TTS_Chatbot" style="background-color: #6f42c1; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">🎙️ Multilingual TTS Chatbot</a>
-         <a href="/PPT_Generator" style="background-color: #fd7e14; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">📊 AI-Powered Presentation Generator</a>
+         <a href="/PPT_Generator" style="background-color: #fd7e14; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">📊 AI-Powered ppt Generator</a>
          <a href="/CV_Analysis" style="background-color: #343a40; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">📄 CV Analysis</a>
          <a href="/Real_Time_Voice-to-Voice" style="background-color: #E10600; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">🎙️ Voice-to-Voice</a>
          <a href="/About_Us" style="background-color: #6c757d; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">👤 About Us</a>
