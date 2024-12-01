@@ -8,21 +8,6 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Add global CSS to apply the Poppins font
-st.markdown(
-    """
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
-    /* Apply Poppins font globally */
-    html, body, [class*="css"]  {
-        font-family: 'Poppins', sans-serif;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
 # Main Page Layout
 def main():
     # Title and Logo
@@ -31,6 +16,7 @@ def main():
     col1, col2, col3 = st.columns([1, 0.7, 1])
     with col2:
         st.image("logo.png", width=60, use_column_width=True)
+    # st.image("bg.png", use_column_width=True)
 
     # Features Section
     st.markdown("<h2 style='text-align:center;'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
@@ -62,7 +48,7 @@ def main():
         },
         {
             "title": "🎙️ Real Time Voice-to-Voice",
-            "description": "Engage in real-time conversations with AI! Upload your voice, get a transcription, and hear the chatbot's response back in voice! 🚀🗣️"
+            "description": "Engage in real-time conversations with AI! Upload your voice, get a transcription, and hear the chatbot's response back in voic! 🚀🗣️"
         },
         {
             "title": "👤 About Us",
@@ -77,6 +63,7 @@ def main():
             <p style='color: #D3D3D3;'>{feature['description']}</p>
         </div>
         """, unsafe_allow_html=True)
+        
 
     # Navigation Buttons
     st.markdown("<h1 style='text-align: center;'>🚀 Explore Our Chatbots</h1>", unsafe_allow_html=True)
@@ -91,7 +78,32 @@ def main():
          <a href="/Real_Time_Voice-to-Voice" style="background-color: #E10600; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">🎙️ Voice-to-Voice</a>
          <a href="/About_Us" style="background-color: #6c757d; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">👤 About Us</a>
       </div>
+     <style>
+      @media (max-width: 768px) {
+        div {
+            text-align: center;
+        }
+        a {
+            display: block;
+            margin: 10px auto;
+            width: 80%;
+            font-size: 16px;
+        }
+      }
+     </style>
     """, unsafe_allow_html=True)
+
+
+    # Intro Statement
+    st.markdown("""
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+    <div>
+        <p style='font-size: 18px; text-align: center;'>📢 Welcome to the CUI Sahiwal Academic Navigator! This AI-powered platform is designed to help you succeed academically by offering personalized study plans, automated tools, and campus insights. Explore now and unlock your full potential! 🚀</p>
+    </div>
+    
+    """, unsafe_allow_html=True)
+    st.sidebar.success("Select a page above.")
 
 # Run App
 if __name__ == "__main__":
