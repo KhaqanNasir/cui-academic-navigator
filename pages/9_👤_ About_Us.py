@@ -80,7 +80,7 @@ def main():
                         <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>
                            <i class="fab fa-github" style="font-size: 20px; color: #000000; margin: 3px;"></i> GitHub
                         </a>
-                        <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>
+                        <a href='https://linkedin.com/in/{member["linkedin"]}' target='_blank' class='social-button'>
                            <i class="fab fa-github" style="font-size: 20px; color: #000000; margin: 3px;"></i> Linkedin
                         </a>
                     </div>
