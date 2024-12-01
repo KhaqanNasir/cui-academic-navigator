@@ -20,13 +20,9 @@ def main():
         font-family: 'Poppins', sans-serif;
     }
 
-    /* Additional styles for buttons and other elements */
-    div {
-        text-align: center;
-    }
-
     a {
         text-decoration: none;
+        font-weight: 800;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -36,7 +32,7 @@ def main():
     st.markdown("<h3 style='text-align:center;'>Your AI-Powered Academic Assistant 🎓✨</h3>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 0.7, 1])
     with col2:
-        st.image("logo.png", width=60, use_column_width=True)
+        st.image("logo.png", use_column_width=True)
 
     # Features Section
     st.markdown("<h2 style='text-align:center;'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
