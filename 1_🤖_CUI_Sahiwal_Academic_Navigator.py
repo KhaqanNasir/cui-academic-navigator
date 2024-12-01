@@ -22,7 +22,11 @@ def main():
 
     a {
         text-decoration: none;
-        font-weight: 800;
+        font-weight: 700;
+        font-family: 'Poppins', sans-serif;
+    }
+    a:hover {
+        opacity:0.7;
     }
     </style>
     """, unsafe_allow_html=True)
