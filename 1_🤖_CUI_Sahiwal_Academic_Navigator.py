@@ -108,6 +108,10 @@ def main():
         <p style='font-size: 18px; text-align: center;'>📢 Welcome to the CUI Sahiwal Academic Navigator! This AI-powered platform is designed to help you succeed academically by offering personalized study plans, automated tools, and campus insights. Explore now and unlock your full potential! 🚀</p>
     </div>
     """, unsafe_allow_html=True)
+    # Footer
+    st.markdown(
+      '<p style="text-align: center; font-weight: 600; font-size: 16px;">💻 Developed with ❤️ using Streamlit | © 2024</p>',
+       unsafe_allow_html=True)
 
     st.sidebar.success("Select a page above.")
 
