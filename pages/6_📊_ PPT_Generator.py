@@ -152,6 +152,10 @@ def main():
                         st.download_button("📥 Download Presentation", file, file_name="presentation.pptx")
                 except Exception as e:
                     st.error(f"Error: {e}")
+    # Footer
+    st.markdown(
+      '<p style="text-align: center; font-weight: 600; font-size: 16px;">💻 Developed with ❤️ using Streamlit | © 2024</p>',
+       unsafe_allow_html=True)
 
 
 if __name__ == "__main__":
