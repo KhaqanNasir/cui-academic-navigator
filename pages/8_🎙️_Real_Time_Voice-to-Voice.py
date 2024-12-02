@@ -1,23 +1,14 @@
 import os
 import streamlit as st
-import whisper
 from gtts import gTTS
 import io
 from transformers import pipeline
 
-# Load Whisper model for transcription
-model = whisper.load_model("small")
-
 # Set up a Hugging Face Transformers pipeline for text generation as a substitute for Groq
 text_generation = pipeline("text-generation", model="gpt2")  # Lightweight alternative
 
-def process_audio(file_path):
+def process_text(text):
     try:
-        # Load and transcribe audio
-        audio = whisper.load_audio(file_path)
-        result = model.transcribe(audio)
-        text = result["text"]
-
         # Generate LLM response using Hugging Face pipeline
         response_message = text_generation(text, max_length=100, do_sample=True)[0]["generated_text"]
 
@@ -37,7 +28,7 @@ def process_audio(file_path):
         return f"An error occurred: {e}", None
 
 # Streamlit UI setup
-st.set_page_config(page_title="Real-Time Voice-to-Voice Chatbot", page_icon="🎙️", layout="wide")
+st.set_page_config(page_title="Text-to-Voice Chatbot", page_icon="🎙️", layout="wide")
 
 # Load Poppins font from Google Fonts
 st.markdown("""
@@ -50,29 +41,24 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Main title with icons
-st.title("🎙️ Real-Time Voice-to-Voice Chatbot 🚀")
+st.title("🎙️ Real-Time Text-to-Voice Chatbot 🚀")
 st.markdown("Developed by [Muhammad Khaqan Nasir](https://www.linkedin.com/in/khaqan-nasir/) 🤝", unsafe_allow_html=True)
 
 # Instructions with additional engaging icons
 st.markdown("""
     ### 📋 Instructions:
-    1. 🗣️ **Upload** an audio file.
-    2. ⏳ **Wait** for the transcription and processing.
+    1. 📝 **Enter** text into the input box.
+    2. ⏳ **Wait** for the chatbot to process and generate a response.
     3. 🎧 **Listen** to the chatbot's response.
     4. 🌟 **Enjoy** the interactive conversation with the bot!
 """)
 
-# Audio input upload section
-audio_file = st.file_uploader("🎤 Upload your audio file", type=["mp3", "wav", "m4a"])
+# Text input for user query
+user_input = st.text_area("✍️ Type your question or message here:")
 
-if audio_file is not None:
-    # Process the audio file
-    audio_path = os.path.join("temp", audio_file.name)
-    with open(audio_path, "wb") as f:
-        f.write(audio_file.getbuffer())
-
-    # Get the response message and audio file
-    response_text, response_audio_path = process_audio(audio_path)
+if user_input:
+    # Process the text input
+    response_text, response_audio_path = process_text(user_input)
 
     # Display the response text
     st.subheader("💬 Response Text:")
@@ -86,25 +72,30 @@ if audio_file is not None:
 # About section with more icons for engagement
 st.markdown("""
     ## 📖 About the Bot
-    This real-time voice-to-voice chatbot utilizes the power of **Whisper** for speech-to-text transcription and **GPT-2** for text generation. The chatbot processes your voice input, generates a response, and converts it back to speech, providing a seamless and engaging user experience. 
+    This real-time text-to-voice chatbot utilizes the power of **GPT-2** for text generation. The chatbot processes your text input, generates a response, and converts it back to speech, providing a seamless and engaging user experience. 
 
     ### 🧠 Model Used:
-    - **Whisper**: Transcribes your audio to text.
     - **GPT-2**: Generates the chatbot's responses in text form.
     - **gTTS**: Converts the generated text back to speech.
 
     ### 🤖 Use Case:
-    This bot is designed to provide interactive conversations, where users speak to the bot, hear the transcription, and get voice responses from the bot in real time.
+    This bot is designed to provide interactive conversations, where users type their message, hear the transcription, and get voice responses from the bot in real time.
 """)
 
 # Add additional section for enhancement and call to action
 st.markdown("""
     ## 🚀 Try It Now!
-    🔥 Engage with the real-time voice-to-voice chatbot. Upload your voice, wait for the magic to happen, and hear back your personalized response! It's quick, fun, and intelligent. 
-    - 🗣️ **Talk** to the bot
+    🔥 Engage with the real-time text-to-voice chatbot. Type your message, wait for the magic to happen, and hear back your personalized response! It's quick, fun, and intelligent. 
+    - 📝 **Type** your message to the bot
     - 🎧 **Hear** back the responses
     - 🤖 **Experience** real-time AI-powered conversation!
 
     ### 🌟 Get Started:
-    Simply upload your audio file and start the conversation.
+    Simply type your message and start the conversation.
 """)
+
+# Footer
+st.markdown(
+    '<p style="text-align: center; font-weight: 600; font-size: 16px;">💻 Developed with ❤️ using Streamlit | © 2024</p>',
+    unsafe_allow_html=True
+)
