@@ -117,3 +117,6 @@ if st.button("Generate Voice"):
 # Footer
 st.markdown("---")
 st.markdown("💻 **Powered by gTTS** | Free resources for TTS generation.")
+st.markdown(
+      '<p style="text-align: center; font-weight: 600; font-size: 16px;">💻 Developed with ❤️ using Streamlit | © 2024</p>',
+       unsafe_allow_html=True)
