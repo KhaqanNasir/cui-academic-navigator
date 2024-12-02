@@ -99,9 +99,9 @@ def main():
         - Stay hydrated and eat healthy meals for focus.  
         - Track your progress and adjust your plan as needed.
         """
-    )
-     # Footer
-     st.markdown(
+     )
+ # Footer
+    st.markdown(
       '<p style="text-align: center; font-weight: 600; font-size: 16px;">💻 Developed with ❤️ using Streamlit | © 2024</p>',
        unsafe_allow_html=True)
 
