@@ -23,8 +23,10 @@ def fetch_university_data(query):
     
     for url in urls:
         try:
-            response = requests.get(url)
+            # Bypass SSL verification (Not recommended for production, remove verify=False in production)
+            response = requests.get(url, verify=False, timeout=10)
             response.raise_for_status()
+            
             soup = BeautifulSoup(response.text, 'html.parser')
             
             # Scrape both <p> and <div> tags for better data coverage
@@ -33,6 +35,8 @@ def fetch_university_data(query):
             
             if info:
                 relevant_info += f"\n🔗 **From {url}**:\n{info}\n"
+        except requests.exceptions.SSLError:
+            relevant_info += f"❌ SSL Error: Unable to fetch data from {url}. Check the SSL certificate.\n"
         except requests.exceptions.RequestException as e:
             relevant_info += f"❌ Error fetching data from {url}: {e}\n"
     
