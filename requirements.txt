@@ -9,7 +9,8 @@ requests
 beautifulsoup4
 gTTS
 pydub
-openai==0.27.8
+openai
+selenium
 streamlit
 python-pptx
 Pillow
