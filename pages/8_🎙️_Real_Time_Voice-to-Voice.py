@@ -2,15 +2,22 @@ import os
 import streamlit as st
 from gtts import gTTS
 import io
-from transformers import pipeline
+import openai  # For OpenAI GPT-3.5 API
 
-# Set up a Hugging Face Transformers pipeline for text generation as a substitute for Groq
-text_generation = pipeline("text-generation", model="gpt2")  # Lightweight alternative
+# Set your OpenAI API key
+openai.api_key = "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"
 
+# Function to process user input and generate a response
 def process_text(text):
     try:
-        # Generate LLM response using Hugging Face pipeline
-        response_message = text_generation(text, max_length=100, do_sample=True)[0]["generated_text"]
+        # Generate LLM response using OpenAI API
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": text}],
+            max_tokens=150,
+            temperature=0.7
+        )
+        response_message = response["choices"][0]["message"]["content"]
 
         # Convert text response to speech using gTTS
         tts = gTTS(response_message)
@@ -76,10 +83,10 @@ if st.button("Generate"):
 # About section with more icons for engagement
 st.markdown("""
     ## 📖 About the Bot
-    This real-time text-to-voice chatbot utilizes the power of **GPT-2** for text generation. The chatbot processes your text input, generates a response, and converts it back to speech, providing a seamless and engaging user experience. 
+    This real-time text-to-voice chatbot utilizes the power of **OpenAI GPT-3.5** for text generation. The chatbot processes your text input, generates a response, and converts it back to speech, providing a seamless and engaging user experience. 
 
     ### 🧠 Model Used:
-    - **GPT-2**: Generates the chatbot's responses in text form.
+    - **GPT-3.5**: Generates the chatbot's responses in text form.
     - **gTTS**: Converts the generated text back to speech.
 
     ### 🤖 Use Case:
