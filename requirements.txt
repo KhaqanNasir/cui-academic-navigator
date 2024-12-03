@@ -10,7 +10,6 @@ beautifulsoup4
 gTTS
 pydub
 openai
-selenium
 streamlit
 python-pptx
 Pillow
