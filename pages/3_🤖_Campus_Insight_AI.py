@@ -1,40 +1,45 @@
 import streamlit as st
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-import time
+import requests
+from bs4 import BeautifulSoup
 
-# Set up the Selenium WebDriver with options
-def setup_driver():
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")  # Run in headless mode
-    service = Service(executable_path="/path/to/chromedriver")
-    driver = webdriver.Chrome(service=service, options=chrome_options)
-    return driver
+# Set the page config at the very beginning of the script
+st.set_page_config(
+    page_title="Campus Insight AI",
+    page_icon="🤖",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
-# Function to fetch data from websites with Selenium
-def fetch_university_data_selenium(query):
+# URLs for fetching data
+facebook_url = "https://www.facebook.com/comsats.sahiwal?mibextid=ZbWKwL"
+instagram_url = "https://www.instagram.com/cui_sahiwal/"
+website_url = "https://www.sahiwal.comsats.edu.pk/"
+linkedin_url = "https://www.linkedin.com/company/cui-sahiwal-campus/mycompany/verification/"
+
+# Function to fetch data from websites with enhanced scraping
+def fetch_university_data(query):
     urls = [website_url, facebook_url, instagram_url, linkedin_url]
     relevant_info = ""
     
     for url in urls:
-        driver = setup_driver()
-        driver.get(url)
-        time.sleep(5)  # Wait for the page to load completely
-        
-        # Example for extracting content from paragraphs or specific sections
         try:
-            content = driver.find_elements(By.TAG_NAME, "p")  # Extract all <p> tags
-            for element in content:
-                if query.lower() in element.text.lower():
-                    relevant_info += f"🔗 **From {url}**: {element.text}\n"
-        except Exception as e:
+            response = requests.get(url)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.text, 'html.parser')
+            
+            # Scrape both <p> and <div> tags for better data coverage
+            content = soup.find_all(["p", "div"])
+            info = " ".join([tag.get_text(strip=True) for tag in content if query.lower() in tag.get_text(strip=True).lower()])
+            
+            if info:
+                relevant_info += f"\n🔗 **From {url}**:\n{info}\n"
+        except requests.exceptions.RequestException as e:
             relevant_info += f"❌ Error fetching data from {url}: {e}\n"
-        finally:
-            driver.quit()  # Close the browser after scraping
-
-    return relevant_info if relevant_info else "⚠️ Sorry, I couldn't find relevant information on the websites."
+    
+    if relevant_info.strip():
+        return relevant_info
+    else:
+        return "⚠️ Sorry, I couldn't find relevant information on the websites. Please try another query or refine your search."
 
 # Main function for Streamlit app
 def main():
@@ -59,8 +64,8 @@ def main():
     # Button to process the user's query
     if st.button("Ask 🤔", key="ask_button"):
         if user_question.strip():
-            # Fetch relevant data using Selenium
-            relevant_data = fetch_university_data_selenium(user_question.strip())
+            # Fetch relevant data
+            relevant_data = fetch_university_data(user_question.strip())
             
             # Update chat history
             st.session_state["chat_history"].append({"role": "user", "content": user_question})
@@ -111,3 +116,4 @@ st.markdown("""
 # Run the app
 if __name__ == "__main__":
     main()
+Footer
