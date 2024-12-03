@@ -48,7 +48,7 @@ st.markdown("Developed by [Muhammad Khaqan Nasir](https://www.linkedin.com/in/kh
 st.markdown("""
     ### 📋 Instructions:
     1. 📝 **Enter** text into the input box.
-    2. ⏳ **Wait** for the chatbot to process and generate a response.
+    2. 🔘 **Click** the Generate button to process and generate a response.
     3. 🎧 **Listen** to the chatbot's response.
     4. 🌟 **Enjoy** the interactive conversation with the bot!
 """)
@@ -56,18 +56,22 @@ st.markdown("""
 # Text input for user query
 user_input = st.text_area("✍️ Type your question or message here:")
 
-if user_input:
-    # Process the text input
-    response_text, response_audio_path = process_text(user_input)
+# Generate button
+if st.button("Generate"):
+    if user_input.strip():
+        # Process the text input
+        response_text, response_audio_path = process_text(user_input)
 
-    # Display the response text
-    st.subheader("💬 Response Text:")
-    st.write(response_text)
+        # Display the response text
+        st.subheader("💬 Response Text:")
+        st.write(response_text)
 
-    # Play the audio response
-    if response_audio_path:
-        audio_file = open(response_audio_path, 'rb')
-        st.audio(audio_file.read(), format="audio/mp3")
+        # Play the audio response
+        if response_audio_path:
+            audio_file = open(response_audio_path, 'rb')
+            st.audio(audio_file.read(), format="audio/mp3")
+    else:
+        st.warning("Please enter some text before clicking Generate!")
 
 # About section with more icons for engagement
 st.markdown("""
@@ -85,13 +89,13 @@ st.markdown("""
 # Add additional section for enhancement and call to action
 st.markdown("""
     ## 🚀 Try It Now!
-    🔥 Engage with the real-time text-to-voice chatbot. Type your message, wait for the magic to happen, and hear back your personalized response! It's quick, fun, and intelligent. 
+    🔥 Engage with the real-time text-to-voice chatbot. Type your message, click Generate, and hear back your personalized response! It's quick, fun, and intelligent. 
     - 📝 **Type** your message to the bot
     - 🎧 **Hear** back the responses
     - 🤖 **Experience** real-time AI-powered conversation!
 
     ### 🌟 Get Started:
-    Simply type your message and start the conversation.
+    Simply type your message and click Generate to start the conversation.
 """)
 
 # Footer
