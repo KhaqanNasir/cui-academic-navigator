@@ -12,26 +12,29 @@ st.set_page_config(
 
 # URLs for fetching data
 facebook_url = "https://www.facebook.com/comsats.sahiwal?mibextid=ZbWKwL"
-instagram_url = "https://www.instagram.com/cui_sahiwal/"
+instagram_url = "https://www.instagram.com/comsats_sahiwal/?igsh=b2I3b3MxdnphbnEz#"
 website_url = "https://www.sahiwal.comsats.edu.pk/"
-linkedin_url = "https://www.linkedin.com/company/cui-sahiwal-campus/mycompany/verification/"
+linkedin_url = "https://www.linkedin.com/company/cui-sahiwal-campus/"
 
 # Function to fetch data from websites with enhanced scraping
 def fetch_university_data(query):
     urls = [website_url, facebook_url, instagram_url, linkedin_url]
     relevant_info = ""
     
+    # Convert the query to lowercase for case-insensitive matching
+    query_lower = query.lower()
+
     for url in urls:
         try:
-            # Bypass SSL verification (Not recommended for production, remove verify=False in production)
+            # Bypass SSL verification temporarily for testing
             response = requests.get(url, verify=False, timeout=10)
             response.raise_for_status()
             
             soup = BeautifulSoup(response.text, 'html.parser')
             
-            # Scrape both <p> and <div> tags for better data coverage
-            content = soup.find_all(["p", "div"])
-            info = " ".join([tag.get_text(strip=True) for tag in content if query.lower() in tag.get_text(strip=True).lower()])
+            # Scrape a broader range of HTML tags for better content coverage
+            content = soup.find_all(["p", "div", "h1", "h2", "span", "a"])
+            info = " ".join([tag.get_text(strip=True) for tag in content if query_lower in tag.get_text(strip=True).lower()])
             
             if info:
                 relevant_info += f"\n🔗 **From {url}**:\n{info}\n"
