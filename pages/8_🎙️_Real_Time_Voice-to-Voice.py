@@ -2,24 +2,15 @@ import os
 import streamlit as st
 from gtts import gTTS
 import io
-import openai  # For OpenAI GPT API
+from transformers import pipeline
 
-# Set your OpenAI API key
-openai.api_key = "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"
+# Set up a Hugging Face Transformers pipeline for text generation as a substitute for Groq
+text_generation = pipeline("text-generation", model="gpt2")  # Lightweight alternative
 
-# Function to process user input and generate a response
 def process_text(text):
     try:
-        # Generate LLM response using OpenAI API
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "You are a helpful chatbot."},
-                {"role": "user", "content": text}
-            ],
-            temperature=0.7
-        )
-        response_message = response["choices"][0]["message"]["content"]
+        # Generate LLM response using Hugging Face pipeline
+        response_message = text_generation(text, max_length=100, do_sample=True)[0]["generated_text"]
 
         # Convert text response to speech using gTTS
         tts = gTTS(response_message)
@@ -57,7 +48,7 @@ st.markdown("Developed by [Muhammad Khaqan Nasir](https://www.linkedin.com/in/kh
 st.markdown("""
     ### 📋 Instructions:
     1. 📝 **Enter** text into the input box.
-    2. 🔘 **Click** the Generate button to process and generate a response.
+    2. ⏳ **Wait** for the chatbot to process and generate a response.
     3. 🎧 **Listen** to the chatbot's response.
     4. 🌟 **Enjoy** the interactive conversation with the bot!
 """)
@@ -65,34 +56,42 @@ st.markdown("""
 # Text input for user query
 user_input = st.text_area("✍️ Type your question or message here:")
 
-# Generate button
-if st.button("Generate"):
-    if user_input.strip():
-        # Process the text input
-        response_text, response_audio_path = process_text(user_input)
+if user_input:
+    # Process the text input
+    response_text, response_audio_path = process_text(user_input)
 
-        # Display the response text
-        st.subheader("💬 Response Text:")
-        st.write(response_text)
+    # Display the response text
+    st.subheader("💬 Response Text:")
+    st.write(response_text)
 
-        # Play the audio response
-        if response_audio_path:
-            audio_file = open(response_audio_path, 'rb')
-            st.audio(audio_file.read(), format="audio/mp3")
-    else:
-        st.warning("Please enter some text before clicking Generate!")
+    # Play the audio response
+    if response_audio_path:
+        audio_file = open(response_audio_path, 'rb')
+        st.audio(audio_file.read(), format="audio/mp3")
 
 # About section with more icons for engagement
 st.markdown("""
     ## 📖 About the Bot
-    This real-time text-to-voice chatbot utilizes the power of **GPT-3.5** for text generation. The chatbot processes your text input, generates a response, and converts it back to speech, providing a seamless and engaging user experience. 
+    This real-time text-to-voice chatbot utilizes the power of **GPT-2** for text generation. The chatbot processes your text input, generates a response, and converts it back to speech, providing a seamless and engaging user experience. 
 
     ### 🧠 Model Used:
-    - **GPT-3.5**: Generates the chatbot's responses in text form.
+    - **GPT-2**: Generates the chatbot's responses in text form.
     - **gTTS**: Converts the generated text back to speech.
 
     ### 🤖 Use Case:
     This bot is designed to provide interactive conversations, where users type their message, hear the transcription, and get voice responses from the bot in real time.
+""")
+
+# Add additional section for enhancement and call to action
+st.markdown("""
+    ## 🚀 Try It Now!
+    🔥 Engage with the real-time text-to-voice chatbot. Type your message, wait for the magic to happen, and hear back your personalized response! It's quick, fun, and intelligent. 
+    - 📝 **Type** your message to the bot
+    - 🎧 **Hear** back the responses
+    - 🤖 **Experience** real-time AI-powered conversation!
+
+    ### 🌟 Get Started:
+    Simply type your message and start the conversation.
 """)
 
 # Footer
