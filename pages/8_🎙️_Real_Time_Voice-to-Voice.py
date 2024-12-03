@@ -2,7 +2,7 @@ import os
 import streamlit as st
 from gtts import gTTS
 import io
-import openai  # For OpenAI GPT-3.5 API
+import openai  # For OpenAI GPT API
 
 # Set your OpenAI API key
 openai.api_key = "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"
@@ -13,8 +13,10 @@ def process_text(text):
         # Generate LLM response using OpenAI API
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": text}],
-            max_tokens=150,
+            messages=[
+                {"role": "system", "content": "You are a helpful chatbot."},
+                {"role": "user", "content": text}
+            ],
             temperature=0.7
         )
         response_message = response["choices"][0]["message"]["content"]
@@ -83,7 +85,7 @@ if st.button("Generate"):
 # About section with more icons for engagement
 st.markdown("""
     ## 📖 About the Bot
-    This real-time text-to-voice chatbot utilizes the power of **OpenAI GPT-3.5** for text generation. The chatbot processes your text input, generates a response, and converts it back to speech, providing a seamless and engaging user experience. 
+    This real-time text-to-voice chatbot utilizes the power of **GPT-3.5** for text generation. The chatbot processes your text input, generates a response, and converts it back to speech, providing a seamless and engaging user experience. 
 
     ### 🧠 Model Used:
     - **GPT-3.5**: Generates the chatbot's responses in text form.
@@ -91,18 +93,6 @@ st.markdown("""
 
     ### 🤖 Use Case:
     This bot is designed to provide interactive conversations, where users type their message, hear the transcription, and get voice responses from the bot in real time.
-""")
-
-# Add additional section for enhancement and call to action
-st.markdown("""
-    ## 🚀 Try It Now!
-    🔥 Engage with the real-time text-to-voice chatbot. Type your message, click Generate, and hear back your personalized response! It's quick, fun, and intelligent. 
-    - 📝 **Type** your message to the bot
-    - 🎧 **Hear** back the responses
-    - 🤖 **Experience** real-time AI-powered conversation!
-
-    ### 🌟 Get Started:
-    Simply type your message and click Generate to start the conversation.
 """)
 
 # Footer
