@@ -9,7 +9,7 @@ import random
 
 # Set up the Streamlit app with title, icon, and layout
 st.set_page_config(
-    page_title="🎨 Profile Picture Generator",
+    page_title="Profile Picture Generator",
     page_icon="🖼️",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -138,6 +138,7 @@ st.write(
 st.write("⚡ **Fast, Fun, and Free to Use!** 🚀")
 
 # Footer
+st.markdown("---")
 st.markdown(
     '<p style="text-align: center; font-weight: 600; font-size: 16px;">💻 Developed with ❤️ using Streamlit | © 2024</p>',
     unsafe_allow_html=True
