@@ -12,9 +12,8 @@ st.set_page_config(
     layout="wide",  
     initial_sidebar_state="collapsed"
 )
-
-# Initialize Groq client with your API key
-client = Groq(api_key="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")
+# Retrieve Groq API key securely from Streamlit secrets
+client = Groq(api_key=st.secrets["GROQ_API_KEY3"])
 
 # Function to load Poppins font
 def load_css():
