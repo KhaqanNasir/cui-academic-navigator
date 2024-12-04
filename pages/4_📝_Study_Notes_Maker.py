@@ -135,14 +135,15 @@ def main():
                 st.write("For additional resources, refer to [Groq API Docs](https://groq.com/docs).")
 
 # About the Model
-st.markdown("""
-    ## About This Model 🤖
-    This Study Notes Generator uses AI to extract and summarize lecture materials into clear and structured study notes. It can process PDF, DOCX, and PPTX files, offering a detailed summary with headings, subheadings, and bullet points for better learning.
-""")
-# Footer
-st.markdown(
-    '<p style="text-align: center; font-weight: 600; font-size: 16px;">💻 Developed with ❤️ using Streamlit | © 2024</p>',
-    unsafe_allow_html=True)
+    st.markdown("""
+       ## About This Model 🤖
+       This Study Notes Generator uses AI to extract and summarize lecture materials into clear and structured study notes. It can process PDF, DOCX, and PPTX files, offering a detailed summary with headings, subheadings, and bullet points for better learning.
+    """)
+    # Footer
+    st.markdown("---")
+    st.markdown(
+      '<p style="text-align: center; font-weight: 600; font-size: 16px;">💻 Developed with ❤️ using Streamlit | © 2024</p>',
+       unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
