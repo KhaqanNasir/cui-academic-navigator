@@ -97,22 +97,23 @@ def main():
         Campus Insight AI is designed to assist students, staff, and visitors by providing instant information about COMSATS University Islamabad, Sahiwal Campus. 
         The bot uses a combination of web scraping and natural language processing to fetch and summarize relevant information from official university platforms.
         """
-    )
+     )
 # Footer
-st.markdown(
-    '<p style="text-align: center; font-weight: 600; font-size: 16px;">💻 Developed with ❤️ using Streamlit | © 2024</p>',
-    unsafe_allow_html=True
-)
+    st.markdown("---")
+    st.markdown(
+       '<p style="text-align: center; font-weight: 600; font-size: 16px;">💻 Developed with ❤️ using Streamlit | © 2024</p>',
+        unsafe_allow_html=True
+      )
 
 # Ensure Poppins font is applied globally
-st.markdown("""
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-    .stApp {
+   st.markdown("""
+     <style>
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+     .stApp {
         font-family: 'Poppins', sans-serif;
-    }
+     }
     </style>
-""", unsafe_allow_html=True)
+   """, unsafe_allow_html=True)
 
 # Run the app
 if __name__ == "__main__":
