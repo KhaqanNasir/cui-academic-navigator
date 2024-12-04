@@ -69,7 +69,7 @@ def main():
             "description": "Analyze CVs effortlessly with AI to rank candidates based on skills and experience, helping you find the best fit for the job! 📄🤖"
         },
         {
-            "title": "🎙️ Real Time Voice-to-Voice",   
+            "title": "🎙️ Real Time Text-to-Voice",   
             "description": "Engage in real-time conversations with AI! Upload your voice, get a transcription, and hear the chatbot's response back in voic! 🚀🗣️"
         },
         {
@@ -101,7 +101,7 @@ def main():
          <a href="/Multilingual_TTS_Chatbot" style="background-color: #6f42c1; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">🎙️ Multilingual TTS Chatbot</a>
          <a href="/PPT_Generator" style="background-color: #fd7e14; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">📊 AI-Powered ppt Generator</a>
          <a href="/CV_Analysis" style="background-color: #343a40; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">📄 CV Analysis</a>
-         <a href="/Real_Time_Voice-to-Voice" style="background-color: #E10600; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">🎙️ Voice-to-Voice</a>
+         <a href="/Real_Time_Text-to-Voice" style="background-color: #E10600; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">🎙️ Text-to-Voice</a>
          <a href="/Profile_Pic_Generator" style="background-color: #846141; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">🖼️ Profile Pic Generator</a>
          <a href="/About_Us" style="background-color: #6c757d; color: white; padding: 12px 24px; font-size: 18px; margin: 5px; border-radius: 8px; text-decoration: none; display: inline-block;">👤 About Us</a>
       </div>
