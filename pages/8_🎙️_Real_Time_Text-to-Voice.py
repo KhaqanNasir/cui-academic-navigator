@@ -24,7 +24,7 @@ def generate_response(user_input, history, response_length):
         messages.append({"role": "user", "content": user_input})
 
         response = openai.ChatCompletion.create(
-            model="gpt-3.5",
+            model="gpt-2",
             messages=messages,
             max_tokens=max_tokens,
         )
