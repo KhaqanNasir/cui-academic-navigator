@@ -1,18 +1,17 @@
-import os
 import streamlit as st
 from gtts import gTTS
 import io
-import openai
+from groq import Groq
 
-# Access the OpenAI API key securely from Streamlit secrets
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+# Initialize Groq client with the API key from Streamlit secrets
+client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 # Maintain conversation history
 if "conversation_history" not in st.session_state:
     st.session_state["conversation_history"] = []
 
-# Function to generate text response using GPT-3.5
-def generate_response(user_input, history, response_length):
+# Function to generate response using LLaMA model via Groq API
+def generate_response_with_llama(user_input, history, response_length):
     try:
         # Set max tokens based on response length
         max_tokens_map = {"short": 50, "medium": 100, "detailed": 200}
@@ -23,13 +22,15 @@ def generate_response(user_input, history, response_length):
         messages += history
         messages.append({"role": "user", "content": user_input})
 
-        response = openai.ChatCompletion.create(
-            model="gpt-2",
+        # Make Groq API call to LLaMA model
+        chat_completion = client.chat.completions.create(
             messages=messages,
-            max_tokens=max_tokens,
+            model="llama3-8b-8192",
         )
-        response_text = response['choices'][0]['message']['content']
+
+        response_text = chat_completion.choices[0].message.content
         return response_text, len(response_text.split())
+
     except Exception as e:
         return f"Error: {e}", 0
 
@@ -50,16 +51,6 @@ def text_to_speech(response_message, language="en", pitch=1.0, speed=1.0):
 
 # Streamlit UI setup
 st.set_page_config(page_title="Enhanced Text-to-Voice Chatbot", page_icon="🎙️", layout="wide")
-
-# Load Poppins font from Google Fonts
-st.markdown("""
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
-""", unsafe_allow_html=True)
 
 # Main title
 st.title("🎙️ Enhanced Text-to-Voice Chatbot 🚀")
@@ -89,9 +80,9 @@ with col3:
 if st.button("Generate"):
     if user_input.strip():
         with st.spinner("Processing... Please wait."):
-            # Generate response
-            response_text, word_count = generate_response(user_input, st.session_state["conversation_history"], response_length)
-            
+            # Generate response using LLaMA model via Groq
+            response_text, word_count = generate_response_with_llama(user_input, st.session_state["conversation_history"], response_length)
+
             # Add user and assistant messages to conversation history
             st.session_state["conversation_history"].append({"role": "user", "content": user_input})
             st.session_state["conversation_history"].append({"role": "assistant", "content": response_text})
@@ -117,7 +108,7 @@ if st.button("Generate"):
 # About section
 st.markdown("""
     ## 📖 About the Bot
-    This chatbot utilizes **GPT-3.5** for generating high-quality, context-aware responses and converts them to speech using **gTTS**. It supports multi-turn conversations, customizable responses, and multiple language options for text-to-speech output.
+    This chatbot utilizes **LLaMA** via Groq for generating high-quality, context-aware responses and converts them to speech using **gTTS**. It supports multi-turn conversations, customizable responses, and multiple language options for text-to-speech output.
 
     ### 🌟 Features:
     - Multi-turn conversation support.
