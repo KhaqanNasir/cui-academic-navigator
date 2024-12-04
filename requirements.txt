@@ -23,3 +23,5 @@ openai-whisper
 rembg
 numpy
 onnxruntime
+torchvision
+torchaudio
