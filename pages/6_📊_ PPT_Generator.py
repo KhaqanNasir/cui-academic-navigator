@@ -5,15 +5,14 @@ from pptx.util import Pt
 import streamlit as st
 from groq import Groq
 
-# Set your API keys
-GROQ_API_KEY = "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"
-OPENAI_API_KEY = "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"
+# Retrieve API keys securely from Streamlit secrets
+GROQ_API_KEY = st.secrets["GROQ_API_KEY4"]
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
-
-# Configure OpenAI API
+# Configure OpenAI API with the key from Streamlit secrets
 openai.api_key = OPENAI_API_KEY
 
-# Initialize Groq client for Llama3 model
+# Initialize Groq client for Llama3 model using the API key from Streamlit secrets
 client = Groq(api_key=GROQ_API_KEY)
 
 # Streamlit configuration
