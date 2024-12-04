@@ -11,10 +11,8 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Set up the Groq client and API key
-GROQ_API_KEY = "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"
-os.environ["GROQ_API_KEY"] = GROQ_API_KEY
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+# Retrieve Groq API key securely from Streamlit secrets
+client = Groq(api_key=st.secrets["GROQ_API_KEY2"])
 
 # Load course data
 data_path = os.path.join(os.path.dirname(__file__), 'assets', 'COMSATSDATASET.xlsx')  
