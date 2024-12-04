@@ -1,15 +1,11 @@
 import os
 import streamlit as st
 from gtts import gTTS
-from dotenv import load_dotenv
 import io
 import openai
 
-# Load environment variables from .env file
-load_dotenv()
-
-# Set up OpenAI API key
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# Access the OpenAI API key securely from Streamlit secrets
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 # Maintain conversation history
 if "conversation_history" not in st.session_state:
