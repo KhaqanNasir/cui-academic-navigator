@@ -87,6 +87,7 @@ def main():
                 </div>
             """, unsafe_allow_html=True)
     # Footer
+    st.markdown("---")
     st.markdown(
         '<p style="text-align: center; font-weight: 600; font-size: 16px;">💻 Developed with ❤️ using Streamlit | © 2024</p>',
        unsafe_allow_html=True)       
