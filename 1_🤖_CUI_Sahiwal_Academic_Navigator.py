@@ -38,7 +38,7 @@ def main():
     st.markdown("<h3 style='text-align:center; font-family: 'Poppins', sans-serif;'>Your AI-Powered Academic Assistant 🎓✨</h3>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 0.7, 1])
     with col2:
-        st.image("logo.png", use_column_width=True)
+        st.image("logo.png", use_container_width=True)
 
     # Features Section
     st.markdown("<h2 style='text-align:center; font-family: 'Poppins', sans-serif;'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
