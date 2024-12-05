@@ -1,7 +1,6 @@
 import streamlit as st
 from gtts import gTTS
 from pydub import AudioSegment
-import os
 import io
 
 # Set Streamlit layout to wide
@@ -40,16 +39,16 @@ LANGUAGES = {
     "Arabic": "ar",
     "Portuguese": "pt",
     "Dutch": "nl",
-    "Urdu": "ur",           
-    "Punjabi": "pa",        
-    "Bengali": "bn",         
-    "Tamil": "ta",           
-    "Telugu": "te",         
-    "Gujarati": "gu",        
-    "Malayalam": "ml",       
-    "Marathi": "mr",         
-    "Japanese": "ja",        
-    "Chinese (Mandarin)": "zh" #
+    "Urdu": "ur",
+    "Punjabi": "pa",
+    "Bengali": "bn",
+    "Tamil": "ta",
+    "Telugu": "te",
+    "Gujarati": "gu",
+    "Malayalam": "ml",
+    "Marathi": "mr",
+    "Japanese": "ja",
+    "Chinese (Mandarin)": "zh"
 }
 
 # Main UI
@@ -59,7 +58,7 @@ st.subheader("Generate speech in your preferred language, voice, and tone.")
 # Language selection
 language = st.selectbox("🌍 Select Language", options=list(LANGUAGES.keys()))
 
-# Voice selection (Gender is not directly supported by gTTS, so we work around this by allowing different languages with different voices)
+# Voice selection (Gender is not directly supported by gTTS)
 gender = st.radio("🎭 Select Voice", options=["Male", "Female"])
 
 # Pitch and tone adjustments (Simulate via pydub)
@@ -79,37 +78,32 @@ if st.button("Generate Voice"):
             # Use gTTS to generate speech
             tts = gTTS(text=text, lang=LANGUAGES[language], slow=False)
 
-            # Save the generated speech to an in-memory file
-            speech_file = "/content/generated_voice.mp3"
-            tts.save(speech_file)
+            # Save the generated speech to a BytesIO buffer
+            mp3_buffer = io.BytesIO()
+            tts.write_to_fp(mp3_buffer)
+            mp3_buffer.seek(0)
 
             # Apply pitch and tone manipulation using pydub
-            sound = AudioSegment.from_mp3(speech_file)
-
-            # Change pitch by altering the speed of the audio (faster = higher pitch, slower = lower pitch)
+            sound = AudioSegment.from_file(mp3_buffer, format="mp3")
             new_speed = pitch  # Adjust the speed for pitch control
             sound = sound.speedup(playback_speed=new_speed)
 
-            # Change tone (volume or pitch range manipulation)
-            tone_factor = tone  # Adjust volume or pitch range
-            sound = sound + (tone_factor - 1.0) * 10  # Adjust volume by scaling
-
-            # Save the modified audio file
-            modified_file = "generated_voice.mp3"
-            sound.export(modified_file, format="mp3")
+            # Save modified audio to a new BytesIO buffer
+            modified_buffer = io.BytesIO()
+            sound.export(modified_buffer, format="mp3")
+            modified_buffer.seek(0)
 
             # Provide the audio in Streamlit
-            st.audio(modified_file, format="audio/mp3")
+            st.audio(modified_buffer, format="audio/mp3")
             st.success("✅ Voice generated successfully!")
 
             # Provide download button for the generated speech
-            with open(modified_file, "rb") as file:
-                st.download_button(
-                    label="⬇️ Download MP3",
-                    data=file,
-                    file_name="generated_voice.mp3",
-                    mime="audio/mp3",
-                )
+            st.download_button(
+                label="⬇️ Download MP3",
+                data=modified_buffer,
+                file_name="generated_voice.mp3",
+                mime="audio/mp3",
+            )
 
         except Exception as e:
             st.error(f"❌ An error occurred: {str(e)}")
@@ -118,5 +112,6 @@ if st.button("Generate Voice"):
 st.markdown("💻 **Powered by gTTS** | Free resources for TTS generation.")
 st.markdown("---")
 st.markdown(
-      '<p style="text-align: center; font-weight: 600; font-size: 16px;">💻 Developed with ❤️ using Streamlit | © 2024</p>',
-       unsafe_allow_html=True)
+    '<p style="text-align: center; font-weight: 600; font-size: 16px;">💻 Developed with ❤️ using Streamlit | © 2024</p>',
+    unsafe_allow_html=True
+)
