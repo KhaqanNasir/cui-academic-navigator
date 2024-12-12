@@ -45,7 +45,7 @@ def main():
     with col2:
        st.image("logo.png", width=700)
 
-    st.markdown("<h3 style='text-align:center;'>Explore More</h3><h3 style='text-align:center;'>⬇️</h3>", unsafe_allow_html=True)
+    st.markdown("<br><br><h3 style='text-align:center;'>Explore More</h3><h3 style='text-align:center;'>⬇️</h3><br><br>", unsafe_allow_html=True)
     
 
     # Features Section
