@@ -49,55 +49,58 @@ def main():
     
 
     # Features Section
-    st.markdown("<h2 style='text-align:center; font-family: 'Poppins', sans-serif;'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
-    
+    st.markdown("<h2 style='text-align:center; font-family: Poppins, sans-serif; font-weight: 600; color: #333;'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
+
     features = [
         {
-            "title": "📘 Personalized Study Chatbot",
-            "description": "Get tailored study plans based on your course outline. Make your study time super productive! 🕒"
+        "title": "📘 Personalized Study Chatbot",
+        "description": "Get tailored study plans based on your course outline. Make your study time super productive! 🕒"
         },
         {
-            "title": "📝 Study Notes Maker",
-            "description": "Effortlessly organize and create notes from your lectures or resources. Stay ahead with well-structured notes! 📓"
+        "title": "📝 Study Notes Maker",
+        "description": "Effortlessly organize and create notes from your lectures or resources. Stay ahead with well-structured notes! 📓"
         },
         {
-            "title": "🤖 Campus Insight AI",
-            "description": "Learn about campus details, events, and services. Stay informed and connected! 🎉"
+        "title": "🤖 Campus Insight AI",
+        "description": "Learn about campus details, events, and services. Stay informed and connected! 🎉"
         },
         {
-            "title": "🎙️ Multilingual TTS Chatbot",
-            "description": "Generate speech in your preferred language, voice, and tone! 🌟"
+        "title": "🎙️ Multilingual TTS Chatbot",
+        "description": "Generate speech in your preferred language, voice, and tone! 🌟"
         },
         {
-            "title": "📊 AI-Powered Presentation Generator",
-            "description": "Create professional presentations effortlessly with AI-powered content and formatting! 📊✨"
+        "title": "📊 AI-Powered Presentation Generator",
+        "description": "Create professional presentations effortlessly with AI-powered content and formatting! 📊✨"
         },
         {
-            "title": "📄 CV Analysis",
-            "description": "Analyze CVs effortlessly with AI to rank candidates based on skills and experience, helping you find the best fit for the job! 📄🤖"
+        "title": "📄 CV Analysis",
+        "description": "Analyze CVs effortlessly with AI to rank candidates based on skills and experience, helping you find the best fit for the job! 📄🤖"
         },
         {
-            "title": "🎙️ Real Time Text-to-Voice",   
-            "description": "Engage in real-time conversations with AI! Upload your voice, get a transcription, and hear the chatbot's response back in voic! 🚀🗣️"
+        "title": "🎙️ Real Time Text-to-Voice",
+        "description": "Engage in real-time conversations with AI! Upload your voice, get a transcription, and hear the chatbot's response back in voice! 🚀🗣️"
         },
         {
-            "title": "🖼️ Profile Pic Generator",
-            "description": "Transform your photos effortlessly into 50 unique and stunning profile pictures with various vibrant backgrounds! 🎨✨"
+        "title": "🖼️ Profile Pic Generator",
+        "description": "Transform your photos effortlessly into 50 unique and stunning profile pictures with various vibrant backgrounds! 🎨✨"
         },
         {
-            "title": "👤 About Us",
-            "description": "Discover the vision, team, and journey behind this app. Join us on our mission to innovate education! 🌟"
+        "title": "👤 About Us",
+        "description": "Discover the vision, team, and journey behind this app. Join us on our mission to innovate education! 🌟"
         }
     ]
 
     for feature in features:
         st.markdown(f"""
-        <div style='background-color: #5F6366; padding: 15px; margin: 10px 0; border-radius: 10px;'>
-            <h3 style='color: #D3D3D3;'>{feature['title']}</h3>
-            <p style='color: #D3D3D3;'>{feature['description']}</p>
+        <div style='background-color: #1A1A1A; padding: 25px; margin: 20px 0; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);'>
+            <h3 style='color: #F0F0F0; font-family: "Poppins", sans-serif; font-weight: 600; font-size: 22px; margin-bottom: 10px;'>
+                {feature['title']}
+            </h3>
+            <p style='color: #B0B0B0; font-family: "Poppins", sans-serif; font-size: 16px; line-height: 1.5;'>
+                {feature['description']}
+            </p>
         </div>
         """, unsafe_allow_html=True)
-        
 
     # Navigation Buttons
     st.markdown("<h1 style='text-align: center;'>🚀 Explore Our Chatbots</h1>", unsafe_allow_html=True)
