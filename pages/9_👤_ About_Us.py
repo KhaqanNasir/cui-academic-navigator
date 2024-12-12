@@ -12,6 +12,9 @@ def load_css():
     }
     </style>
     """, unsafe_allow_html=True)
+    st.markdown("""
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    """, unsafe_allow_html=True)
 
 def encode_image(image_path):
     # Read and encode image in base64 format
