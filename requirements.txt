@@ -25,4 +25,4 @@ torchaudio
 ffmpeg-python
 gTTS==2.2.3
 pydub==0.25.1
-streamlit==1.15.0
+streamlit
