@@ -33,12 +33,22 @@ def main():
     </style>
     """, unsafe_allow_html=True)
 
-    # Title and Logo
-    st.markdown("<h1 style='text-align:center; font-family: 'Poppins', sans-serif;'>🤖 CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align:center; font-family: 'Poppins', sans-serif;'>Your AI-Powered Academic Assistant 🎓✨</h3>", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns([1, 0.7, 1])
+    # Title and Logo Section
+    col1, col2 = st.columns([1, 1])  # Adjust the ratio if needed
+    with col1:
+       st.markdown("<h1 style='font-size: 60px; margin-top: 20px;'>CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
+       st.markdown("<p style='font-size: 20px; color: gray;'>Your AI-Powered Academic Assistant, designed to help students and educators navigate the academic journey with ease and precision.</p>",
+                unsafe_allow_html=True)
+       st.markdown("<p style='font-size: 20px; color: gray;'>Providing smart solutions for academic challenges, including personalized study resources, exam preparation, and academic guidance. 🎓✨</p>",
+                unsafe_allow_html=True)
+       st.markdown("""<ul style='font-size: 18px; color: gray;'>
+               <li>🌟 AI-driven academic guidance and support.</li>
+               <li>🧠 Tailored recommendations for study resources and exam prep.</li>
+               <li>🎓 Empowering students and educators to excel in their academic journey.</li>
+               <li>📚 Your one-stop solution for academic success.</li>
+           </ul>""", unsafe_allow_html=True)
     with col2:
-        st.image("logo.png", use_container_width=True)
+       st.image("logo.png", width=600)
 
     # Features Section
     st.markdown("<h2 style='text-align:center; font-family: 'Poppins', sans-serif;'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
