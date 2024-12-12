@@ -43,7 +43,7 @@ def main():
                <li>📚 Your one-stop solution for academic success.</li>
            </ul>""", unsafe_allow_html=True)
     with col2:
-       st.image("logo.png", width=500)
+       st.image("logo.png", width=700)
 
     # Features Section
     st.markdown("<h2 style='text-align:center; font-family: 'Poppins', sans-serif;'>🌟 Features 🌟</h2>", unsafe_allow_html=True)
