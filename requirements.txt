@@ -23,7 +23,6 @@ numpy
 onnxruntime
 torchvision
 torchaudio
-gTTS==2.3.2
-pydub==0.25.1
-ffmpeg-python==0.2.0
-
+gTTS
+pydub
+ffmpeg-python
