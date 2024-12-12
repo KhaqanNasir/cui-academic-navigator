@@ -17,11 +17,6 @@ def main():
     html, body, [class*="css"], *{
         font-family: 'Poppins', sans-serif;
     }
-    div {
-        font-family: 'Poppins', sans-serif; 
-        text-align: center;
-    }
-
     a {
         text-decoration: none;
         font-weight: 500;
