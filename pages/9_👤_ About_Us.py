@@ -69,23 +69,48 @@ def main():
         with col:
             # Encode image to base64
             encoded_image = encode_image(member['image'])
+        
+            # HTML structure with background color and adjusted image height
             st.markdown(f"""
-                <div style='background-color: #f8f9fa; border-radius: 10px; padding: 20px; margin-bottom: 20px; text-align: center;'>
-                    <div style='border-radius: 50%; overflow: hidden; width: 150px; height: 150px; margin: 0 auto;'>
-                        <img src="data:image/jpeg;base64,{encoded_image}" alt="{member['name']}" style='width:100%; height:100%; object-fit: cover;'>
-                    </div>
-                    <div style='font-size: 22px; font-weight: 600; color: #5F6366;'>{member['name']}</div>
-                    <div style='font-size: 18px; color: #5F6366;'>{member['registration_no']}</div>
-                    <div style='margin-top: 10px;'>
-                        <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>
-                           <i class="fab fa-github" style="font-size: 20px; color: #000000; margin: 3px;"></i> GitHub
-                        </a>
-                        <a href='https://linkedin.com/in/{member["linkedin"]}' target='_blank' class='social-button'>
-                           <i class="fab fa-github" style="font-size: 20px; color: #000000; margin: 3px;"></i> Linkedin
-                        </a>
-                    </div>
+            <div style='background-color: #f8f9fa; border-radius: 10px; padding: 20px; margin-bottom: 20px; text-align: center;'>
+                <div style='background-color: #ffffff; border-radius: 50%; width: 200px; height: 200px; margin: 0 auto; display: flex; justify-content: center; align-items: center;'>
+                    <img src="data:image/jpeg;base64,{encoded_image}" alt="{member['name']}" style='width: 100%; height: 100%; object-fit: cover; border-radius: 50%;'>
                 </div>
+                <div style='font-size: 22px; font-weight: 600; color: #5F6366; margin-top: 10px;'>{member['name']}</div>
+                <div style='font-size: 18px; color: #5F6366;'>{member['registration_no']}</div>
+                <div style='font-size: 18px; color: #5F6366; margin-top: 5px;'>
+                    <a href='https://github.com/{member["github"]}' target='_blank' style='font-size: 20px; color: #000000; margin-right: 10px;'>
+                        <i class="fab fa-github" style="font-size: 20px; color: #000000; margin-right: 5px;"></i> GitHub
+                    </a>
+                    <a href='https://linkedin.com/in/{member["linkedin"]}' target='_blank' style='font-size: 20px; color: #0077B5;'>
+                        <i class="fab fa-linkedin" style="font-size: 20px; color: #0077B5; margin-right: 5px;"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
             """, unsafe_allow_html=True)
+
+    # cols = st.columns(len(team_members))
+    # for col, member in zip(cols, team_members):
+    #     with col:
+    #         # Encode image to base64
+    #         encoded_image = encode_image(member['image'])
+    #         st.markdown(f"""
+    #             <div style='background-color: #f8f9fa; border-radius: 10px; padding: 20px; margin-bottom: 20px; text-align: center;'>
+    #                 <div style='border-radius: 50%; overflow: hidden; width: 150px; height: 150px; margin: 0 auto;'>
+    #                     <img src="data:image/jpeg;base64,{encoded_image}" alt="{member['name']}" style='width:100%; height:100%; object-fit: cover;'>
+    #                 </div>
+    #                 <div style='font-size: 22px; font-weight: 600; color: #5F6366;'>{member['name']}</div>
+    #                 <div style='font-size: 18px; color: #5F6366;'>{member['registration_no']}</div>
+    #                 <div style='margin-top: 10px;'>
+    #                     <a href='https://github.com/{member["github"]}' target='_blank' class='social-button'>
+    #                        <i class="fab fa-github" style="font-size: 20px; color: #000000; margin: 3px;"></i> GitHub
+    #                     </a>
+    #                     <a href='https://linkedin.com/in/{member["linkedin"]}' target='_blank' class='social-button'>
+    #                        <i class="fab fa-github" style="font-size: 20px; color: #000000; margin: 3px;"></i> Linkedin
+    #                     </a>
+    #                 </div>
+    #             </div>
+    #         """, unsafe_allow_html=True)
     # Footer
     st.markdown("---")
     st.markdown(
