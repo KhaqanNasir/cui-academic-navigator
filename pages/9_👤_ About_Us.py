@@ -48,7 +48,7 @@ def main():
             "registration_no": "FA22-BCS-039",
             "github": "KhaqanNasir",
             "linkedin": "khaqan-nasir",
-        "image": os.path.join(os.path.dirname(__file__), 'assets', 'member02.jpeg') 
+        "image": os.path.join(os.path.dirname(__file__), 'assets', 'Profile_Pic_Updat.jpg') 
         }
         # },
         # {
