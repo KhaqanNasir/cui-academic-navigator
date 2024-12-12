@@ -333,8 +333,12 @@ if st.button("Generate Voice"):
 
             # Apply pitch and tone manipulation using pydub
             sound = AudioSegment.from_file(mp3_buffer, format="mp3")
-            new_speed = pitch  # Adjust the speed for pitch control
-            sound = sound.speedup(playback_speed=new_speed)
+            
+            # Apply pitch adjustment by changing the speed
+            sound = sound.speedup(playback_speed=pitch)
+            
+            # If you want to simulate tone adjustments, you can modify the volume or apply other effects
+            sound = sound + (tone - 1) * 10  # Adjust volume based on tone (this is an approximation)
 
             # Save modified audio to a new BytesIO buffer
             modified_buffer = io.BytesIO()
