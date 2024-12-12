@@ -213,7 +213,7 @@ if st.button("Generate Voice"):
 
             # Apply pitch adjustment using playback speed
             adjusted_speed = pitch
-            sound = sound.speedup(playback_speed=adjusted_speed)
+            sound = sound.speedup(playback_speed=adjusted_speed, crossfade=0)
 
             # Save the modified audio to a new buffer
             modified_buffer = io.BytesIO()
