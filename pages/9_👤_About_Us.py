@@ -49,20 +49,6 @@ def main():
             "github": "KhaqanNasir",
             "linkedin": "khaqan-nasir",
         "image": os.path.join(os.path.dirname(__file__), 'assets', 'member01.jpg') 
-        },
-        {
-            "name": "🖥️ Khadija Riaz",
-            "registration_no": "FA22-BCS-038",
-            "github": "#",
-            "linkedin": "#",
-            "image": os.path.join(os.path.dirname(__file__), 'assets', 'Profile_Pic_Updat.jpg')  
-        },
-        {
-            "name": "🖥️ Ahsan Abdullah",
-            "registration_no": "FA22-BCS-015",
-            "github": "#",
-            "linkedin": "#",
-            "image": os.path.join(os.path.dirname(__file__), 'assets', 'member01.jpeg')  
         }
     ]
     
