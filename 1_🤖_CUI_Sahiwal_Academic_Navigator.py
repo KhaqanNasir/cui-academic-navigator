@@ -31,12 +31,12 @@ def main():
     # Title and Logo Section
     col1, col2 = st.columns([1, 1])  # Adjust the ratio if needed
     with col1:
-       st.markdown("<h1 style='font-size: 60px; margin-top: 20px; font-weight: 600'>CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
+       st.markdown("<h1 style='font-size: 50px; margin-top: 20px; font-weight: 600'>CUI Sahiwal Academic Navigator</h1>", unsafe_allow_html=True)
        st.markdown("<p style='font-size: 20px; color: gray;'>Your AI-Powered Academic Assistant, designed to help students and educators navigate the academic journey with ease and precision.</p>",
                 unsafe_allow_html=True)
        st.markdown("<p style='font-size: 20px; color: gray;'>Providing smart solutions for academic challenges, including personalized study resources, exam preparation, and academic guidance. 🎓✨</p>",
                 unsafe_allow_html=True)
-       st.markdown("""<ul style='font-size: 18px; color: gray; margin-left: 20px;'>
+       st.markdown("""<ul style='font-size: 20px; color: gray; margin-left: 20px;'>
                <li>🌟 AI-driven academic guidance and support.</li>
                <li>🧠 Tailored recommendations for study resources and exam prep.</li>
                <li>🎓 Empowering students and educators to excel in their academic journey.</li>
