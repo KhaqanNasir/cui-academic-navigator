@@ -28,7 +28,7 @@ def main():
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown("<br><br><br><br><br>", unsafe_allow_html=True)
+    st.markdown("<br><br><br><br>", unsafe_allow_html=True)
     
     # Title and Logo Section
     col1, col2 = st.columns([1, 1])  # Adjust the ratio if needed
