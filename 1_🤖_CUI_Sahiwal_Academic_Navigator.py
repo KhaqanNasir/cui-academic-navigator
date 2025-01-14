@@ -36,7 +36,7 @@ def main():
                 unsafe_allow_html=True)
        st.markdown("<p style='font-size: 20px; color: gray;'>Providing smart solutions for academic challenges, including personalized study resources, exam preparation, and academic guidance. 🎓✨</p>",
                 unsafe_allow_html=True)
-       st.markdown("""<ul style='font-size: 18px; color: gray;'>
+       st.markdown("""<ul style='font-size: 18px; color: gray; margin-left: 10px;'>
                <li>🌟 AI-driven academic guidance and support.</li>
                <li>🧠 Tailored recommendations for study resources and exam prep.</li>
                <li>🎓 Empowering students and educators to excel in their academic journey.</li>
